@@ -481,12 +481,12 @@
 	});
 	function create() {
 		var name = $("#name").val();
-	var email = $("#email").val();
-	var no_telp = $("#no_telp").val();
+		var email = $("#email").val();
+		var no_telp = $("#no_telp").val();
 		var package = $("#package").val();
 		var numberpeople = $("#numberpeople").val();
-	var banknumber = $("#banknumber").val();
-	var data ={proses: "input", name: name,email:email,no_telp:no_telp,package:package,numberpeople:numberpeople,banknumber:banknumber};
+		var banknumber = $("#banknumber").val();
+		var data ={proses: "input", name: name,email:email,no_telp:no_telp,package:package,numberpeople:numberpeople,banknumber:banknumber};
 	$.ajax({
 	url:"../Service/TransactionInput.php", //the page containing php script
 	type: "post", //request type,
@@ -510,16 +510,16 @@
 	success: function(data) {
 	$.each(data, function (i, item) {
 	$('#package').append($('<option>', {
-		value: item['id_package'],
-		text : item['package_name']
-		}));
-		});
-		},
-		error: function() {
-		alert("Terjadi Kesalahan");
-		}
-		});
-		}
+			value: item['id_package'],
+			text : item['package_name']
+			}));
+			});
+			},
+			error: function() {
+			alert("Terjadi Kesalahan");
+			}
+			});
+			}
 		</script>
 	</body>
 </html>
