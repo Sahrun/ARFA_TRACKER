@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> 
+<!--[if gt IE 8]><!-->
 <html class="no-js"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
@@ -12,17 +12,6 @@
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FREEHTML5.CO" />
-	<!--
-		//////////////////////////////////////////////////////
-		FREE HTML5 TEMPLATE
-		DESIGNED & DEVELOPED by FREEHTML5.CO
-			
-																				Website: 		http://freehtml5.co/
-																													Email: 			info@freehtml5.co
-																				Twitter: 		http://twitter.com/fh5co
-																				Facebook: 		https://www.facebook.com/fh5co
-		//////////////////////////////////////////////////////
-	-->
 	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
 	<meta property="og:image" content=""/>
@@ -36,6 +25,7 @@
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="../css/animate.css">
@@ -73,18 +63,6 @@
 						<nav id="fh5co-menu-wrap" role="navigation">
 							<ul class="sf-menu" id="fh5co-primary-menu">
 								<li><a href="index.html">Home</a></li>
-								<!-- <li>
-																		<a href="vacation.html" class="fh5co-sub-ddown">Vacations</a>
-																		<ul class="fh5co-sub-menu">
-																												<li><a href="#">Family</a></li>
-																												<li><a href="#">CSS3 &amp; HTML5</a></li>
-																												<li><a href="#">Angular JS</a></li>
-																												<li><a href="#">Node JS</a></li>
-																												<li><a href="#">Django &amp; Python</a></li>
-																		</ul>
-								</li>
-								<li><a href="flight.html">Flights</a></li>
-								<li><a href="hotel.html">Hotel</a></li> -->
 								<li><a href="profil.html">Profile</a></li>
 								<li><a href="blog.html">Blog</a></li>
 								<li class="active"><a href="contact.html">Contact</a></li>
@@ -94,316 +72,31 @@
 				</div>
 			</header>
 			<!-- end:header-top -->
-			
-			<div class="">
-				<div class="fh5co-overlay"></div>
-				<div class="fh5co-cover" data-stellar-background-ratio="0.2" style="background-image: url(../images/gambar2.jpg);">
-					<div class="desc">
-						<div class="container">
-							<div class="row">
-								<div class="col-sm-5 col-md-5">
-									<div class="tabulation animate-box">
-										<!-- Nav tabs -->
-										<ul class="nav nav-tabs" role="tablist">
-											<li role="presentation">
-												<a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">Flights</a>
-											</li>
-											<li role="presentation" class="active">
-												<a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab">Hotels</a>
-											</li>
-											<li role="presentation">
-												<a href="#packages" aria-controls="packages" role="tab" data-toggle="tab">Packages</a>
-											</li>
-										</ul>
-										<!-- Tab panes -->
-										<div class="tab-content">
-											<div role="tabpanel" class="tab-pane" id="flights">
-												<div class="row">
-													<div class="col-xxs-12 col-xs-6 mt">
-														<div class="input-field">
-															<label for="from">From:</label>
-															<input type="text" class="form-control" id="from-place" placeholder="Los Angeles, USA"/>
-														</div>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt">
-														<div class="input-field">
-															<label for="from">To:</label>
-															<input type="text" class="form-control" id="to-place" placeholder="Tokyo, Japan"/>
-														</div>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt alternate">
-														<div class="input-field">
-															<label for="date-start">Check In:</label>
-															<input type="text" class="form-control" id="date-start" placeholder="mm/dd/yyyy"/>
-														</div>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt alternate">
-														<div class="input-field">
-															<label for="date-end">Check Out:</label>
-															<input type="text" class="form-control" id="date-end" placeholder="mm/dd/yyyy"/>
-														</div>
-													</div>
-													<div class="col-sm-12 mt">
-														<section>
-															<label for="class">Class:</label>
-															<select class="cs-select cs-skin-border">
-																<option value="" disabled selected>Economy</option>
-																<option value="economy">Economy</option>
-																<option value="first">First</option>
-																<option value="business">Business</option>
-															</select>
-														</section>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt">
-														<section>
-															<label for="class">Adult:</label>
-															<select class="cs-select cs-skin-border">
-																<option value="" disabled selected>1</option>
-																<option value="1">1</option>
-																<option value="2">2</option>
-																<option value="3">3</option>
-																<option value="4">4</option>
-															</select>
-														</section>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt">
-														<section>
-															<label for="class">Children:</label>
-															<select class="cs-select cs-skin-border">
-																<option value="" disabled selected>1</option>
-																<option value="1">1</option>
-																<option value="2">2</option>
-																<option value="3">3</option>
-																<option value="4">4</option>
-															</select>
-														</section>
-													</div>
-													<div class="col-xs-12">
-														<input type="submit" class="btn btn-primary btn-block" value="Search Flight">
-													</div>
-												</div>
-											</div>
-											<div role="tabpanel" class="tab-pane active" id="hotels">
-												<div class="row">
-													<div class="col-xxs-12 col-xs-12 mt">
-														<div class="input-field">
-															<label for="from">City:</label>
-															<input type="text" class="form-control" id="from-place" placeholder="Los Angeles, USA"/>
-														</div>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt alternate">
-														<div class="input-field">
-															<label for="date-start">Return:</label>
-															<input type="text" class="form-control" id="date-start" placeholder="mm/dd/yyyy"/>
-														</div>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt alternate">
-														<div class="input-field">
-															<label for="date-end">Check Out:</label>
-															<input type="text" class="form-control" id="date-end" placeholder="mm/dd/yyyy"/>
-														</div>
-													</div>
-													<div class="col-sm-12 mt">
-														<section>
-															<label for="class">Rooms:</label>
-															<select class="cs-select cs-skin-border">
-																<option value="" disabled selected>1</option>
-																<option value="economy">1</option>
-																<option value="first">2</option>
-																<option value="business">3</option>
-															</select>
-														</section>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt">
-														<section>
-															<label for="class">Adult:</label>
-															<select class="cs-select cs-skin-border">
-																<option value="" disabled selected>1</option>
-																<option value="1">1</option>
-																<option value="2">2</option>
-																<option value="3">3</option>
-																<option value="4">4</option>
-															</select>
-														</section>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt">
-														<section>
-															<label for="class">Children:</label>
-															<select class="cs-select cs-skin-border">
-																<option value="" disabled selected>1</option>
-																<option value="1">1</option>
-																<option value="2">2</option>
-																<option value="3">3</option>
-																<option value="4">4</option>
-															</select>
-														</section>
-													</div>
-													<div class="col-xs-12">
-														<input type="submit" class="btn btn-primary btn-block" value="Search Hotel">
-													</div>
-												</div>
-											</div>
-											<div role="tabpanel" class="tab-pane" id="packages">
-												<div class="row">
-													<div class="col-xxs-12 col-xs-6 mt">
-														<div class="input-field">
-															<label for="from">City:</label>
-															<input type="text" class="form-control" id="from-place" placeholder="Los Angeles, USA"/>
-														</div>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt">
-														<div class="input-field">
-															<label for="from">Destination:</label>
-															<input type="text" class="form-control" id="to-place" placeholder="Tokyo, Japan"/>
-														</div>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt alternate">
-														<div class="input-field">
-															<label for="date-start">Departs:</label>
-															<input type="text" class="form-control" id="date-start" placeholder="mm/dd/yyyy"/>
-														</div>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt alternate">
-														<div class="input-field">
-															<label for="date-end">Return:</label>
-															<input type="text" class="form-control" id="date-end" placeholder="mm/dd/yyyy"/>
-														</div>
-													</div>
-													<div class="col-sm-12 mt">
-														<section>
-															<label for="class">Rooms:</label>
-															<select class="cs-select cs-skin-border">
-																<option value="" disabled selected>1</option>
-																<option value="economy">1</option>
-																<option value="first">2</option>
-																<option value="business">3</option>
-															</select>
-														</section>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt">
-														<section>
-															<label for="class">Adult:</label>
-															<select class="cs-select cs-skin-border">
-																<option value="" disabled selected>1</option>
-																<option value="1">1</option>
-																<option value="2">2</option>
-																<option value="3">3</option>
-																<option value="4">4</option>
-															</select>
-														</section>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt">
-														<section>
-															<label for="class">Children:</label>
-															<select class="cs-select cs-skin-border">
-																<option value="" disabled selected>1</option>
-																<option value="1">1</option>
-																<option value="2">2</option>
-																<option value="3">3</option>
-																<option value="4">4</option>
-															</select>
-														</section>
-													</div>
-													<div class="col-xs-12">
-														<input type="submit" class="btn btn-primary btn-block" value="Search Packages">
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="desc2 animate-box">
-									<div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
-										<h2>Rinjani Tracking <br> Arfa Tracker Slow</h2>
-										<!-- <p><a class="btn btn-primary btn-lg" href="#">Get Started</a></p> -->
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
 			<div>
 				<div class="container">
 					<div class="row">
-						<div style="margin-top: 50px;" class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-							<h3>Contact Information</h3>
-						</div>
-					</div>
-					<div class="form-horizontal">
-						<div class="col-md-2">
-						</div>
-						<div class="col-md-8">
-							<div class="form-group">
-								<div class="col-md-3">
-									<label for="name">Name</label>
-								</div>
-								<div class="col-md-9">
-									<input type="text" name="name" id="name" class="form-control" placeholder="Enter Full Name">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-3">
-									<label for="email">Email</label>
-								</div>
-								<div class="col-md-9">
-									<input type="email" name="email" id="email"  class="form-control" placeholder="Enter Email">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-3">
-									<label for="phonenumber">Phone Number</label>
-								</div>
-								<div class="col-md-9">
-									<input type="text" name="no_telp" id="no_telp" class="form-control" placeholder="Enter Phone Number">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-3">
-									<label for="package">Package</label>
-								</div>
-								<div class="col-md-9">
-									<select class="form-control" id="package">
-										<option value="1">Climb 5 days 4 nights</option>
-										<option value="2">Climb 4 days 3 nights</option>
-										<option value="3">Climb 3 days 2 nights</option>
-										<option value="4">Climb 2 days 1 nights</option>
-									</select>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-3">
-									<label for="numberpeople">Number of People</label>
-								</div>
-								<div class="col-md-9">
-									<input type="text" name="numberpeople" id="numberpeople" class="form-control" placeholder="Enter Number of People">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-3">
-									<label for="banknumber">Bank Account Number</label>
-								</div>
-								<div class="col-md-9">
-									<input type="text" name="banknumber" id="banknumber" class="form-control" placeholder="Enter Bank Account Number">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-3">
-								</div>
-								<div class="col-md-9">
-									<button id="save" class="btn btn-warning">Submit</button>
-								</div>
-							</div>
-						</div>
+						<table class="responstable" id="dataTransction">
+							
+							<tr>
+							    <th>No</th>
+								<th>Tanggal Pemesanan</th>
+								<th>Nama Pemsan</th>
+								<th>Email</th>
+								<th>Nomer Telepon</th>
+								<th>Paket</th>
+								<th>Jumlah Orang</th>
+								<th>Tanggal Penjemputan</th>
+								<th>Lokasi Penjemputan</th>
+							</tr>
+						</table>
 					</div>
 				</div>
 			</div>
 			
-			<footer>
-				<div id="footer">
-					<div class="container">
-						<div class="row row-bottom-padded-md">
+			<!-- <footer> -->
+				<!-- <div id="footer"> -->
+					<!-- <div class="container"> -->
+						<!-- <div class="row row-bottom-padded-md">
 							<div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
 								<h3>About Travel</h3>
 								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -465,10 +158,10 @@
 								</p>
 								<p>Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights Reserved. <br>Made with <i class="icon-heart3"></i> by <a href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> / Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
 							</div>
-						</div>
-					</div>
-				</div>
-			</footer>
+						</div> -->
+					<!-- </div> -->
+				<!-- </div> -->
+			<!-- </footer> -->
 			
 		</div>
 		<!-- END fh5co-page -->
@@ -503,29 +196,21 @@
 	<!-- Main JS -->
 	<script src="../js/main.js"></script>
 	<script type="text/javascript">
-	$("#save").click(function(){
-	create();
-	});
-	function create() {
-		var name = $("#name").val();
-	var email = $("#email").val();
-	var no_telp = $("#no_telp").val();
-		var package = $("#package").val();
-		var numberpeople = $("#numberpeople").val();
-	var banknumber = $("#banknumber").val();
-	var data ={proses: "input", name: name,email:email,no_telp:no_telp,package:package,numberpeople:numberpeople,banknumber:banknumber};
+     GetDataTransaction();
+	function GetDataTransaction() {
 	$.ajax({
 	url:"../Service/TransactionInput.php", //the page containing php script
-	type: "post", //request type,
+	type: "get", //request type,
 	dataType: "json",
-	data: data,
-	 success: function() {
-          alert("Transaksi Berhasil");
-          window.location.replace("http://stackoverflow.com");
-        },
-        error: function() {
-          alert("Terjadi Kesalahan Silahkan Ulangi!");
-        }
+	data: {req:'gatDataTransctionOrder'},
+	success: function(data) {
+		$.each(data, function (i, item) {
+    $("#dataTransction").append("<tr><td>"+(i+1)+"</td><td>"+item['date_order']+"</td><td>"+item['name']+"</td><td>"+item['email']+"</td><td>"+item['no_telpon']+"</td><td>"+item['package_name']+"</td><td>"+item['number_people']+"</td><td></td>"+item['pickup_location']+"<td>"+item['date_pickup']+"</td></tr>");
+     });
+	},
+	error: function() {
+	alert("Terjadi Kesalahan Silahkan Ulangi!");
+	}
 	});
 	}
 	</script>
