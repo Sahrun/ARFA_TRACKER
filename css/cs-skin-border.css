@@ -64,7 +64,7 @@ div.cs-skin-border {
 
 .cs-skin-border.cs-active .cs-options {
 	opacity: 1;
-	-webkit-transition: opacity 0.2s;
+	/*-webkit-transition: opacity 0.2s;*/
 	transition: opacity 0.2s;
 }
 

@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2017 at 04:20 AM
--- Server version: 10.1.10-MariaDB
--- PHP Version: 5.5.33
+-- Generation Time: 12 Sep 2017 pada 16.57
+-- Versi Server: 10.1.24-MariaDB
+-- PHP Version: 7.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -23,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `blog`
+-- Struktur dari tabel `blog`
 --
 
 CREATE TABLE `blog` (
@@ -36,7 +38,7 @@ CREATE TABLE `blog` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `blog_foto`
+-- Struktur dari tabel `blog_foto`
 --
 
 CREATE TABLE `blog_foto` (
@@ -48,7 +50,7 @@ CREATE TABLE `blog_foto` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contact`
+-- Struktur dari tabel `contact`
 --
 
 CREATE TABLE `contact` (
@@ -61,7 +63,7 @@ CREATE TABLE `contact` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detailgalery`
+-- Struktur dari tabel `detailgalery`
 --
 
 CREATE TABLE `detailgalery` (
@@ -73,7 +75,7 @@ CREATE TABLE `detailgalery` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detailpackage`
+-- Struktur dari tabel `detailpackage`
 --
 
 CREATE TABLE `detailpackage` (
@@ -85,7 +87,7 @@ CREATE TABLE `detailpackage` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `food`
+-- Struktur dari tabel `food`
 --
 
 CREATE TABLE `food` (
@@ -97,45 +99,65 @@ CREATE TABLE `food` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `galery`
+-- Struktur dari tabel `galery`
 --
 
 CREATE TABLE `galery` (
   `id_galary` int(11) NOT NULL,
-  `upload_date` date NOT NULL
+  `upload_date` date NOT NULL,
+  `name_galery` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
+-- Struktur dari tabel `order_package`
 --
 
-CREATE TABLE `order` (
+CREATE TABLE `order_package` (
   `id_order` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `email` varchar(30) NOT NULL,
   `no_telpon` int(15) NOT NULL,
   `id_package` int(11) NOT NULL,
   `number_people` int(3) NOT NULL,
-  `no_rek` int(20) NOT NULL
+  `pickup_location` varchar(100) NOT NULL,
+  `date_pickup` date NOT NULL,
+  `date_order` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `order_package`
+--
+
+INSERT INTO `order_package` (`id_order`, `name`, `email`, `no_telpon`, `id_package`, `number_people`, `pickup_location`, `date_pickup`, `date_order`) VALUES
+(30, 'mujur', 'sahrun_nawawie@yahoo.com', 445454, 1, 455454, '45454', '0000-00-00', '0000-00-00'),
+(31, 'mujur', 'anggafitri16@gmail.com', 445454, 1, 455454, '45454', '0000-00-00', '0000-00-00'),
+(32, 'mujur', 'sahrun_nawawie@yahoo.com', 445454, 1, 455454, 'sasas', '0000-00-00', '0000-00-00'),
+(33, 'mujur', 'sahrun_nawawie@yahoo.com', 445454, 1, 455454, 'sdsdsd', '2017-10-03', '2017-09-10');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `package`
+-- Struktur dari tabel `package`
 --
 
 CREATE TABLE `package` (
   `id_package` int(11) NOT NULL,
-  `package_name` int(50) NOT NULL
+  `package_name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `package`
+--
+
+INSERT INTO `package` (`id_package`, `package_name`) VALUES
+(1, 'makan');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -146,14 +168,16 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`userid`, `name`, `email`, `password`) VALUES
 (1, '', '', ''),
 (2, 'Mujur Indra Jati', 'mujurindrajati@gmail.com', 'ere'),
 (3, '', '', ''),
-(4, 'test', 'mujurindrajati@gmail.com', 'tyy');
+(4, 'test', 'mujurindrajati@gmail.com', 'tyy'),
+(5, 'sahrun', 'sahrun@gmail.com', 'vccvc'),
+(6, 'sahrun', 'sahrun@gmail.com', 'vccvc');
 
 --
 -- Indexes for dumped tables
@@ -205,9 +229,9 @@ ALTER TABLE `galery`
   ADD PRIMARY KEY (`id_galary`);
 
 --
--- Indexes for table `order`
+-- Indexes for table `order_package`
 --
-ALTER TABLE `order`
+ALTER TABLE `order_package`
   ADD PRIMARY KEY (`id_order`),
   ADD KEY `id_package` (`id_package`);
 
@@ -246,7 +270,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `detailgalery`
 --
 ALTER TABLE `detailgalery`
-  MODIFY `id_detail_galery` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_detail_galery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `detailpackage`
 --
@@ -261,49 +285,50 @@ ALTER TABLE `food`
 -- AUTO_INCREMENT for table `galery`
 --
 ALTER TABLE `galery`
-  MODIFY `id_galary` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_galary` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
--- AUTO_INCREMENT for table `order`
+-- AUTO_INCREMENT for table `order_package`
 --
-ALTER TABLE `order`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `order_package`
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT for table `package`
 --
 ALTER TABLE `package`
-  MODIFY `id_package` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_package` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `blog_foto`
+-- Ketidakleluasaan untuk tabel `blog_foto`
 --
 ALTER TABLE `blog_foto`
   ADD CONSTRAINT `blog_foto_ibfk_1` FOREIGN KEY (`id_blog`) REFERENCES `blog` (`id_blog`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `detailgalery`
+-- Ketidakleluasaan untuk tabel `detailgalery`
 --
 ALTER TABLE `detailgalery`
   ADD CONSTRAINT `detailgalery_ibfk_1` FOREIGN KEY (`id_galery`) REFERENCES `galery` (`id_galary`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `detailpackage`
+-- Ketidakleluasaan untuk tabel `detailpackage`
 --
 ALTER TABLE `detailpackage`
   ADD CONSTRAINT `detailpackage_ibfk_1` FOREIGN KEY (`id_package`) REFERENCES `package` (`id_package`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `order`
+-- Ketidakleluasaan untuk tabel `order_package`
 --
-ALTER TABLE `order`
-  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`id_package`) REFERENCES `package` (`id_package`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `order_package`
+  ADD CONSTRAINT `order_package_ibfk_1` FOREIGN KEY (`id_package`) REFERENCES `package` (`id_package`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

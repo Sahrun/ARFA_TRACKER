@@ -121,7 +121,7 @@
 																</div>
 																<div class="col-md-8">
 																	<select class="cs-select cs-skin-border" id="package">
-																		<option value="" disabled selected>Select</option>
+																		<option value="">Select</option>
 																	</select>
 																</div>
 															</div>
@@ -135,10 +135,10 @@
 															</div>
 															<div class="form-group">
 																<div class="col-md-4">
-																	<label for="banknumber">Pickup Location</label>
+																	<label for="pickup_location">Pickup Location</label>
 																</div>
 																<div class="col-md-8">
-																	<input type="text" name="banknumber" id="banknumber" class="form-control" placeholder="Enter Pickup Location">
+																	<input type="text" name="pickup_location" id="pickup_location" class="form-control" placeholder="Enter Pickup Location">
 																</div>
 															</div>
 															<div class="form-group">
@@ -146,7 +146,7 @@
 																	<label for="banknumber">Date of Pickup</label>
 																</div>
 																<div class="col-md-8">
-																	<input class="form-control" type="text" id="datepicker">
+																	<input class="form-control" type="text" id="DatePickup"  data-date-format='yy-mm-dd'>
 																</div>
 															</div>
 															<div class="form-group">
@@ -425,8 +425,8 @@
 		<script src="js/main.js"></script>
 		<script>
 		$( function() {
-		$( "#datepicker" ).datepicker();
-		} );
+		$("#DatePickup").datepicker({autoclose: true,format: "dd/mm/yyyy"});
+        });
 		</script>
 		<!-- ACTION BOOKING-->
 		<script type="text/javascript">
@@ -438,18 +438,22 @@
 				var name = $("#name").val();
 				var email = $("#email").val();
 				var no_telp = $("#no_telp").val();
-				var package = $("#package").val();
+				//var package = $("#package").val();
+				var package = 1;
 				var numberpeople = $("#numberpeople").val();
-				var banknumber = $("#banknumber").val();
-				var data ={proses: "input", name: name,email:email,no_telp:no_telp,package:package,numberpeople:numberpeople,banknumber:banknumber};
+				var pickupLocation = $("#pickup_location").val();
+				TemArray = $("#DatePickup").val().split("/");
+				var datePickup = TemArray[2]+"-"+TemArray[1]+"-"+TemArray[0];
+				var data ={proses: "input", name: name,email:email,no_telp:no_telp,package:package,numberpeople:numberpeople,pickupLocation:pickupLocation,datePickup:datePickup};
+
 			$.ajax({
-			url:"../Service/TransactionInput.php", //the page containing php script
+			url:"Service/TransactionInput.php", //the page containing php script
 			type: "post", //request type,
 			dataType: "json",
 			data: data,
 			success: function() {
 			alert("Transaksi Berhasil");
-			window.location.replace("transaction_queu.html");
+			window.location.replace("index.html");
 			},
 			error: function() {
 			alert("Terjadi Kesalahan Silahkan Ulangi!");
@@ -458,7 +462,7 @@
 			}
 			function GetPackege(){
 			$.ajax({
-			url:"../Service/TransactionInput.php", //the page containing php script
+			url:"Service/TransactionInput.php", //the page containing php script
 			type: "get", //request type,
 			dataType: "json",
 			data: {req:'getPackage'},

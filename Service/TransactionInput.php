@@ -32,9 +32,11 @@ switch ($request) {
 	$noPhone = $_POST['no_telp'];
 	$package = $_POST['package'];
 	$numberpeople = $_POST['numberpeople'];
-	$bank         = $_POST['banknumber'];
-$Insert_Order="INSERT INTO order_package(name,email,no_telpon,id_package,number_people,no_rek)
-VALUES('$name','$email',$noPhone,$package,$numberpeople,$bank)";
+	$pickupLocation         = $_POST['pickupLocation'];
+	$datePickup = $_POST['datePickup'];
+	$datenow = date('Y-m-d');
+$Insert_Order="INSERT INTO order_package(name,email,no_telpon,id_package,number_people,pickup_location,date_pickup,date_order)
+VALUES('$name','$email',$noPhone,$package,$numberpeople,'$pickupLocation','$datePickup','$datenow')";
 if (mysqli_query($connection, $Insert_Order )) {
 	 echo json_encode(array('status'=>true));
 		} else {
