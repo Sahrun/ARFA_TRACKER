@@ -12,9 +12,15 @@ switch ($request) {
 case 'input':
 SaveGalery($connection);
 break;
-case 'gatDataTransctionOrder':
-GetDataTransctionOrder($connection);
+case 'GetDataGalery':
+GetDataGalery($connection);
 break;
+case 'GetDataGaleryById':
+GetDataGaleryById($connection,$_GET['id']);
+break;
+case 'update':
+	UpdateGalery($connection);
+	break;
 default:
 echo "service Not Found";
 }
@@ -41,6 +47,31 @@ mysqli_query($connection, $Insert_Galery_Detail);
 echo "Error Insert Data" . mysqli_error($connection);
 }
 }
+
+function UpdateGalery($connection){
+		$galeryname = $_POST['nama_galery'];
+		$galeryId = $_POST['idGalery'];
+        $Update_Galery="UPDATE  galery set name_galery ='$galeryname' WHERE id_galary=$galeryId";
+        if (mysqli_query($connection, $Update_Galery )) {
+		if(count($_FILES["Foto"]['name']) > 0 && $_FILES["Foto"]['name'][0] !== ""){
+		    $fileNames = upload($_FILES["Foto"]);
+			$nameprice = "";
+			$DeleteGaleryDetail = mysqli_query($connection,"DELETE FROM detailgalery WHERE id_galery = $galeryId");
+			if($DeleteGaleryDetail){
+			for ($i = 0; $i < count($fileNames); $i++) {
+				$nameprice = $fileNames[$i];
+				$Insert_Galery_Detail="INSERT INTO detailgalery(id_galery,foto)
+			VALUES($galeryId,'$nameprice')";
+			mysqli_query($connection, $Insert_Galery_Detail);
+			}
+            }
+	} 
+echo json_encode(array('status'=>true));
+} else {
+echo "Error Insert Data" . mysqli_error($connection);
+}
+}
+
 function Upload ($files){
 $fileNames = array();
 $namaFile = "";
@@ -59,36 +90,44 @@ if(move_uploaded_file($files["tmp_name"][$key], "../images/Galery/" .$namaFile))
 return $fileNames;
 }
 
-function GetDataTransctionOrder($connection){
-$GetTransaction="SELECT o.id_order,
-					o.name,
-					o.email ,
-					o.no_telpon ,
-					p.package_name,
-					o.number_people,
-					o.pickup_location,
-					o.date_pickup,
-					o.date_order
-FROM order_package o
-INNER JOIN package p
-ON o.id_package = p.id_package";
-$result = mysqli_query($connection, $GetTransaction);
+function GetDataGalery($connection){
+$result = mysqli_query($connection, "SELECT * FROM galery");
 if ($result) {
 	$data = array();
 	while ($rw = mysqli_fetch_array($result)) {
-		$data[] = array('id_order' => $rw['id_order'],
-			'name'=>$rw['name'],
-			'email'=>$rw['email'],
-			'no_telpon'=>$rw['no_telpon'],
-			'package_name'=>$rw['package_name'],
-			'number_people'=>$rw['number_people'],
-			'pickup_location'=>$rw['pickup_location'],
-			'date_pickup'=>$rw['date_pickup'],
-			'date_order'=>$rw['date_order'],);
+		$data[] = array('id_galary' => $rw['id_galary'],
+			'upload_date'=>$rw['upload_date'],
+			'name_galery'=>$rw['name_galery']);
 	}
 	echo json_encode($data);
 		} else {
 		echo "Terjadi Kesalahan" . mysqli_error($connection);
 		}
 }
+
+function GetDataGaleryById($connection,$id){
+	$data = array();
+	$GaleryArray = array();
+	$detailGaleryArray = array();
+    $Galery = mysqli_query($connection, "SELECT * FROM galery  WHERE id_galary=$id");
+	if($Galery){
+	while ($rw = mysqli_fetch_array($Galery)) {
+		$GaleryArray = array('id_galary' => $rw['id_galary'],
+			'upload_date'=>$rw['upload_date'],
+			'name_galery'=>$rw['name_galery']);
+	}
+	 $GaleryDitail = mysqli_query($connection, "SELECT * FROM detailgalery WHERE id_galery = $id");
+	if($GaleryDitail){
+         while ($rw = mysqli_fetch_array($GaleryDitail)) {
+	 	$detailGaleryArray[] = array('foto' => $rw['foto']);
+	}
+	 }
+	$data= array('galery' => $GaleryArray,'detailgalery' => $detailGaleryArray);
+	echo json_encode($data);
+		} else {
+		echo "Terjadi Kesalahan" . mysqli_error($connection);
+		}
+}
+
+
 ?>
