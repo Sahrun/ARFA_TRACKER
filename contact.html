@@ -16,10 +16,10 @@
 		FREE HTML5 TEMPLATE
 		DESIGNED & DEVELOPED by FREEHTML5.CO
 			
-				Website: 		http://freehtml5.co/
-					Email: 			info@freehtml5.co
-				Twitter: 		http://twitter.com/fh5co
-				Facebook: 		https://www.facebook.com/fh5co
+										Website: 		http://freehtml5.co/
+														Email: 			info@freehtml5.co
+										Twitter: 		http://twitter.com/fh5co
+										Facebook: 		https://www.facebook.com/fh5co
 		//////////////////////////////////////////////////////
 	-->
 	<!-- Facebook and Twitter integration -->
@@ -73,14 +73,14 @@
 							<ul class="sf-menu" id="fh5co-primary-menu">
 								<li><a href="index.html">Home</a></li>
 								<!-- <li>
-										<a href="vacation.html" class="fh5co-sub-ddown">Vacations</a>
-										<ul class="fh5co-sub-menu">
-												<li><a href="#">Family</a></li>
-												<li><a href="#">CSS3 &amp; HTML5</a></li>
-												<li><a href="#">Angular JS</a></li>
-												<li><a href="#">Node JS</a></li>
-												<li><a href="#">Django &amp; Python</a></li>
-										</ul>
+													<a href="vacation.html" class="fh5co-sub-ddown">Vacations</a>
+													<ul class="fh5co-sub-menu">
+																		<li><a href="#">Family</a></li>
+																		<li><a href="#">CSS3 &amp; HTML5</a></li>
+																		<li><a href="#">Angular JS</a></li>
+																		<li><a href="#">Node JS</a></li>
+																		<li><a href="#">Django &amp; Python</a></li>
+													</ul>
 								</li>
 								<li><a href="flight.html">Flights</a></li>
 								<li><a href="hotel.html">Hotel</a></li> -->
@@ -94,16 +94,16 @@
 			</header>
 			<!-- end:header-top -->
 			
-			<div class="">
+			<!-- <div class="">
 				<div class="fh5co-overlay"></div>
 				<div class="fh5co-cover" data-stellar-background-ratio="0.2" style="background-image: url(images/gambar2.jpg);">
 					<div class="desc">
 						<div class="container">
 							<div class="row">
 								<div class="col-sm-5 col-md-5">
-									<div class="tabulation animate-box">
+									<div class="tabulation animate-box"> -->
 										<!-- Nav tabs -->
-										<ul class="nav nav-tabs" role="tablist">
+										<!-- <ul class="nav nav-tabs" role="tablist">
 											<li role="presentation">
 												<a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">Flights</a>
 											</li>
@@ -113,9 +113,9 @@
 											<li role="presentation">
 												<a href="#packages" aria-controls="packages" role="tab" data-toggle="tab">Packages</a>
 											</li>
-										</ul>
+										</ul> -->
 										<!-- Tab panes -->
-										<div class="tab-content">
+										<!-- <div class="tab-content">
 											<div role="tabpanel" class="tab-pane" id="flights">
 												<div class="row">
 													<div class="col-xxs-12 col-xs-6 mt">
@@ -307,20 +307,20 @@
 														<input type="submit" class="btn btn-primary btn-block" value="Search Packages">
 													</div>
 												</div>
-											</div>
-										</div>
+											</div> -->
+								<!-- 		</div>
 									</div>
 								</div>
 								<div class="desc2 animate-box">
 									<div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
-										<h2>Rinjani Tracking <br> Arfa Tracker Slow</h2>
+										<h2>Rinjani Tracking <br> Arfa Tracker Slow</h2> -->
 										<!-- <p><a class="btn btn-primary btn-lg" href="#">Get Started</a></p> -->
-									</div>
+<!-- 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			
 			<div id="fh5co-contact" class="fh5co-section-gray">
@@ -345,26 +345,28 @@
 							</div>
 							<div class="col-md-6">
 								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<input type="text" name="name" class="form-control" placeholder="Name">
+									<form id="formContact" class="form-horizontal">
+										<div class="col-md-6">
+											<div class="form-group">
+												<input type="text" name="name" id="name" class="form-control" placeholder="Name">
+											</div>
 										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<input type="email" name="email" class="form-control" placeholder="Email">
+										<div class="col-md-6">
+											<div class="form-group">
+												<input type="email" name="email" id="email" class="form-control" placeholder="Email">
+											</div>
 										</div>
-									</div>
-									<div class="col-md-12">
-										<div class="form-group">
-											<textarea name="message" class="form-control" id="" cols="30" rows="7" placeholder="Message"></textarea>
+										<div class="col-md-12">
+											<div class="form-group">
+												<textarea name="message" id="message" class="form-control" id="" cols="30" rows="7" placeholder="Message"></textarea>
+											</div>
 										</div>
-									</div>
-									<div class="col-md-12">
-										<div class="form-group">
-											<input type="submit" value="Send Message" class="btn btn-primary">
+										<div class="col-md-12">
+											<div class="form-group">
+												<button id="saveContact" class="btn btn-warning">Send Message</button>
+											</div>
 										</div>
-									</div>
+									</form>
 								</div>
 							</div>
 						</div>
@@ -469,10 +471,38 @@
 	<script src="js/classie.js"></script>
 	<script src="js/selectFx.js"></script>
 	<!-- Google Map -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
 	<script src="js/google_map.js"></script>
 	
 	<!-- Main JS -->
 	<script src="js/main.js"></script>
+	<!-- SAVE CONTACT -->
+	<script type="text/javascript">
+		$("#saveContact").click(function() {
+			var name = $("#name").val();
+			var email = $("#email").val();
+			var message = $("#message").val();
+			var data = {proses: "inputcontact", name: name, email: email, message: message};
+			insertcontact(data);
+			$("#name").val("");
+			$("#email").val("");
+			$("#message").val("");
+			return false;
+
+	});
+		function insertcontact(data){
+			$.ajax({
+				url: "Service/Contact.php",
+				type: "POST",
+				data: data,
+				dataType: "json",
+				success: function(){
+					alert("Message has been sent");
+				},
+				error: function(){
+					alert("Someting wrong, please try again");
+				}
+			});
+		}
+	</script>
 </body>
 </html>
