@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
@@ -75,18 +71,13 @@
 			<div>
 				<div class="container">
 					<div class="row">
-						<table class="table table-striped" id="dataTransction">
-							<thead>
+						<table class="table table-striped" id="dataContact">
+							<tr>
 							    <th width="5%">No</th>
-								<th>Tanggal Pemesanan</th>
-								<th>Nama Pemsan</th>
-								<th>Email</th>
-								<th>Nomer Telepon</th>
-								<th>Paket</th>
-								<th>Jumlah Orang</th>
-								<th>Tanggal Penjemputan</th>
-								<th>Lokasi Penjemputan</th>
-							</thead>
+								<th width="20%">Nama</th>
+								<th width="20%">Email</th>
+								<th width="55%">Pesan</th>
+							</tr>
 						</table>
 					</div>
 				</div>
@@ -118,29 +109,31 @@
 	<!-- CS Select -->
 	<script src="../js/classie.js"></script>
 	<script src="../js/selectFx.js"></script>
-	<!-- Google Map -->
-	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script> -->
 	<script src="../js/google_map.js"></script>
 	
 	<!-- Main JS -->
 	<script src="../js/main.js"></script>
 	<script type="text/javascript">
-     GetDataTransaction();
-	function GetDataTransaction() {
+
+     // Inisialis
+     GetDataContact();
+     // End Inisialis
+
+	function GetDataContact() {
 	$.ajax({
-	url:"../Service/TransactionInput.php", //the page containing php script
-	type: "get", //request type,
-	dataType: "json",
-	data: {req:'gatDataTransctionOrder'},
-	success: function(data) {
-		$.each(data, function (i, item) {
-    $("#dataTransction").append("<tr><td>"+(i+1)+"</td><td>"+item['date_order']+"</td><td>"+item['name']+"</td><td>"+item['email']+"</td><td>"+item['no_telpon']+"</td><td>"+item['package_name']+"</td><td>"+item['number_people']+"</td><td>"+item['date_pickup']+"<td>"+item['pickup_location']+"</td></tr>");
-     });
-	},
-	error: function() {
-	alert("Terjadi Kesalahan Silahkan Ulangi!");
-	}
-	});
+		url:"../Service/Contact.php", //the page containing php script
+		type: "get", //request type,
+		dataType: "json",
+		data: {req:'gatDataContact'},
+				success: function(data) {
+					$.each(data, function (i, item) {
+			    		$("#dataContact").append("<tr><td>"+(i+1)+"</td><td>"+item['name']+"</td><td>"+item['email']+"</td><td>"+item['message']+"</td>");
+			     	});
+			},
+				error: function() {
+					alert("Terjadi Kesalahan Silahkan Ulangi!");
+				}
+			});
 	}
 	</script>
 </body>
