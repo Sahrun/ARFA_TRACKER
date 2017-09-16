@@ -55,7 +55,7 @@
 							<!-- START #fh5co-menu-wrap -->
 							<nav id="fh5co-menu-wrap" role="navigation">
 								<ul class="sf-menu" id="fh5co-primary-menu">
-									<li><a href="index.html">Home</a></li>
+									<li><a href="../index.html">Home</a></li>
 									<li><a href="profil.html">Profile</a></li>
 									<li><a href="blog.html">Blog</a></li>
 									<li class="active"><a href="contact.html">Contact</a></li>
@@ -215,7 +215,7 @@
 			success: function(data) {
 				$("#tableData").empty();
 				$.each(data, function (i, item) {
-			$("#tableData").append("<tr><td>"+(i+1)+"</td><td>"+item['name_galery']+"</td><td>"+item['upload_date']+"<td><a class='btn'><span class='glyphicon glyphicon-pencil' aria-hidden='true' data-toggle='modal' data-target='#modalform' onclick='GetGaleryByIdEdit("+item['id_galary']+")'></a> <a class='btn'><span class='glyphicon glyphicon-search' aria-hidden='true' data-toggle='modal' data-target='#modalViewDetail' onclick='GetGaleryById("+item['id_galary']+")'></span></a></td></tr>");
+			$("#tableData").append("<tr><td>"+(i+1)+"</td><td>"+item['name_galery']+"</td><td>"+item['upload_date']+"<td><a class='btn' data-toggle='modal' data-target='#modalform' onclick='GetGaleryByIdEdit("+item['id_galary']+")'><span class='glyphicon glyphicon-pencil' aria-hidden='true' ></a> <a class='btn'  data-toggle='modal' data-target='#modalViewDetail' onclick='GetGaleryById("+item['id_galary']+")'><span class='glyphicon glyphicon-search' aria-hidden='true'></span></a></td></tr>");
 			});
 			},
 			error: function() {

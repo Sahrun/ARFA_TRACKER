@@ -18,6 +18,9 @@ break;
 case 'GetDataGaleryById':
 GetDataGaleryById($connection,$_GET['id']);
 break;
+case 'GetGaleryIndex':
+GetDataGaleryIndex($connection);
+	break;
 case 'update':
 	UpdateGalery($connection);
 	break;
@@ -129,5 +132,17 @@ function GetDataGaleryById($connection,$id){
 		}
 }
 
+function GetDataGaleryIndex($connection){
+	$data = array();
+    $Galery = mysqli_query($connection, "SELECT foto FROM detailgalery ORDER BY id_galery DESC LIMIT 10");
+	if($Galery){
+	while ($rw = mysqli_fetch_array($Galery)) {
+		$data[] = array('photoName' => $rw['foto']);
+	}
+	echo json_encode($data);
+		} else {
+		echo "Terjadi Kesalahan" . mysqli_error($connection);
+		}
+}
 
 ?>
