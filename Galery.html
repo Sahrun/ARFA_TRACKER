@@ -171,15 +171,15 @@
 				</div>
 				
 				<div id="fh5co-tours" class="fh5co-section-gray" style="padding-left: 100px; padding-right: 100px;">
-					<!-- <div class="container">
+					<div class="container">
 						<div class="row">
 							<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
 								<h3>Food & Drink</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
+								<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p> -->
 							</div>
 						</div>
-					</div> -->
-					<!-- <div class="row">
+					</div>
+					<div class="row">
 						<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
 							<div href="#"><img src="images/place-3.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 								<div class="desc">
@@ -213,14 +213,82 @@
 						<div class="col-md-12 text-center animate-box">
 							<p><a class="btn btn-primary btn-outline btn-lg" href="#">See All <i class="icon-arrow-right22"></i></a></p>
 						</div>
-					</div> -->
+					</div>
 				</div>
 				<div id="fh5co-destination" style="padding-left: 100px; padding-right: 100px;">
 					<div class="tour-fluid">
 						<div class="row">
 							<div class="col-md-12">
-								<ul id="fh5co-destination-list" class="animate-box" >
-
+								<ul id="fh5co-destination-list" class="animate-box">
+									<li class="one-forth text-center" style="background-image: url(images/Galary1.jpg); ">
+										<a href="#">
+											<div class="case-studies-summary">
+											</div>
+										</a>
+									</li>
+									<li class="one-forth text-center" style="background-image: url(images/Galary2.jpg); ">
+										<a href="#">
+											<div class="case-studies-summary">
+											</div>
+										</a>
+									</li>
+									<li class="one-forth text-center" style="background-image: url(images/Galary3.jpg); ">
+										<a href="#">
+											<div class="case-studies-summary">
+											</div>
+										</a>
+									</li>
+									<li class="one-forth text-center" style="background-image: url(images/Galary4.jpg); ">
+										<a href="#">
+											<div class="case-studies-summary">
+											</div>
+										</a>
+									</li>
+									<li class="one-forth text-center" style="background-image: url(images/place-5.jpg); ">
+										<a href="#">
+											<div class="case-studies-summary">
+											</div>
+										</a>
+									</li>
+									<li class="one-half text-center">
+										<div class="title-bg">
+											<div class="case-studies-summary">
+												<h2>Most Popular Destinations</h2>
+												<span><a href="#">View All Destinations</a></span>
+											</div>
+										</div>
+									</li>
+									<li class="one-forth text-center" style="background-image: url(images/Galary6.jpg); ">
+										<a href="#">
+											<div class="case-studies-summary">
+											</div>
+										</a>
+									</li>
+									<li class="one-forth text-center" style="background-image: url(images/Galary7.jpg); ">
+										<a href="#">
+											<div class="case-studies-summary">
+											</div>
+										</a>
+									</li>
+									<li class="one-forth text-center" style="background-image: url(images/Galary8.jpg); ">
+										<a href="#">
+											<div class="case-studies-summary">
+											</div>
+										</a>
+									</li>
+									<li class="one-forth text-center" style="background-image: url(images/Galary9.jpg); ">
+										<a href="#">
+											<div class="case-studies-summary">
+											</div>
+										</a>
+									</li>
+									<li class="one-forth text-center" style="background-image: url(images/Galary10.jpg); ">
+										<a href="#">
+											<div class="case-studies-summary">
+											</div>
+										</a>
+									</li>
+								</ul>
 							</div>
 						</div>
 					</div>
@@ -362,7 +430,7 @@
 		</script>
 		<!-- ACTION BOOKING-->
 		<script type="text/javascript">
-			GetPackege();
+
 			GetDataGalery();
 			$("#save").click(function(){
 			create();
@@ -412,28 +480,6 @@
 						}
 						});
 						}
-			function GetDataGalery(){
-					$.ajax({
-			url:"Service/Galery.php", //the page containing php script
-			type: "get", //request type,
-			dataType: "json",
-			data: {req:'GetGaleryIndex'},
-			success: function(data) {
-				$.each(data, function (i, item) {
-					//console.log(item['photoName'])
-			     if(i == 5){
-                    $("#fh5co-destination-list").append("<li class='one-half text-center'><div class='title-bg'><div class='case-studies-summary'><span><a href='Galery.html'>View All Galery</a></span></div></div></li>");
-                      $("#fh5co-destination-list").append("<li class='one-forth text-center' style='background-image: url(images/Galery/"+item['photoName']+");'><a><div class='case-studies-summary'></div></a></li>");
-			     }else{
-			     $("#fh5co-destination-list").append("<li class='one-forth text-center' style='background-image: url(images/Galery/"+item['photoName']+");'><a><div class='case-studies-summary'></div></a></li>");
-			     }
-			});
-			},
-			error: function() {
-			alert("Terjadi Kesalahan Silahkan Ulangi!");
-			}
-			});
-			}
 			</script>
 		</body>
 	</html>
