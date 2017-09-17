@@ -100,8 +100,8 @@
 								<label for="from">Where Are You From:</label>
 							</div>
 							<div class="input-field">
-								<label for="from"><?php echo $_POST['no_telp'] ?></label>
-								<input type="hidden" id="from" value="<?php echo $_POST['no_telp'] ?>" >
+								<label for="from"><?php if($_POST['from'] == 1){echo "Local";}else if($_POST['from'] == 1){echo "Internasional";} ?></label>
+								<input type="hidden" id="from" value="<?php echo $_POST['from'] ?>" >
 							</div>
 						</div>
 						<div class="col-xxs-12 col-xs-6 mt" >
@@ -109,7 +109,7 @@
 								<label for="from">Package:</label>
 							</div>
 							<div class="input-field">
-								<label for="from"><?php echo $_POST['package'] ?></label>
+								<label for="from" id="PackageName"></label>
 								<input type="hidden" id="package" value="<?php echo $_POST['package'] ?>" >
 							</div>
 						</div>
@@ -136,13 +136,14 @@
 								<label for="from">Date of Pickup:</label>
 							</div>
 							<div class="input-field">
-								<label for="from"><?php echo $_POST['DatePickup'] ?></label>
+								<label for="from"><?php $date = str_replace("/","-",$_POST['DatePickup']); 
+								 echo date_format(date_create($date),'d M Y')?></label>
 								<input class="form-control" type="hidden" id="DatePickup"  value="<?php echo $_POST['DatePickup'] ?>">
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-xs-12">
-								<button id="save" class="btn btn-primary btn-block">Booking</button>
+								<button id="save" class="btn btn-primary btn-block">Booking Now</button>
 							</div>
 						</div>
 					</div>
@@ -211,6 +212,8 @@
 				<script src="js/main.js"></script>
 				<!-- ACTION BOOKING-->
 				<script type="text/javascript">
+				var iddetpackage = $("#package").val();
+				GetNamePakage(iddetpackage);
 					$("#save").click(function(){
 					create();
 					});
@@ -239,14 +242,14 @@
 					}
 					});
 					}
-					function GetNamePakage(id){
+				function GetNamePakage(id){
 						$.ajax({
 				url:"Service/TransactionInput.php", //the page containing php script
 				type: "get", //request type,
 				dataType: "json",
-				data: {req:'GetNamePakage'},
+				data: {req:'GetNamePakage',id:id},
 				success: function(data) {
-						console.log();
+						$("#PackageName").html(data['package_name']);
 				},
 				error: function() {
 				alert("Terjadi Kesalahan");
