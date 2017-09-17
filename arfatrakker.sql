@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2017 at 10:00 AM
+-- Generation Time: Sep 17, 2017 at 12:44 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.5.33
 
@@ -58,23 +58,6 @@ CREATE TABLE `contact` (
   `message` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `contact`
---
-
-INSERT INTO `contact` (`id_contact`, `name`, `email`, `message`) VALUES
-(1, 'sasa', 'asa', 'asas'),
-(2, 'fdsa', 'mujurindrajati@gmail.com', 'fdsa'),
-(3, 'fdsa', 'mujurakakom@gmail.com', 'fdas'),
-(4, 'fdas', 'mujurakakom@gmail.com', 'fsad'),
-(5, 'sss', 'mujurindrajati@gmail.com', 'ss'),
-(6, 'sd', 'tisyafkm@yahoo.com', 'dsd'),
-(7, 'fdsaf', 'tisyafkm@yahoo.com', 'fdsaf'),
-(8, 'sahrun', 'mujurindrajati@gmail.com', 'dfasdfasf'),
-(9, 'fdsaf', 'fds', 'fds'),
-(10, 'fdasf', 'fdsaf', 'fdsaf'),
-(11, '1234', '1234', '1234');
-
 -- --------------------------------------------------------
 
 --
@@ -92,16 +75,16 @@ CREATE TABLE `detailgalery` (
 --
 
 INSERT INTO `detailgalery` (`id_detail_galery`, `id_galery`, `foto`) VALUES
-(2, 2, '20170916055959393400.JPG'),
-(3, 2, '20170916055959698781.JPG'),
-(4, 2, '20170916055959249592.JPG'),
-(5, 2, '20170916055959637073.JPG'),
-(6, 2, '20170916055959263954.JPG'),
-(7, 2, '20170916055959137905.jpg'),
-(8, 2, '20170916055959431136.JPG'),
-(9, 2, '20170916055959387497.JPG'),
-(10, 2, '20170916055959574328.jpg'),
-(11, 2, '2017091605595958199.JPG');
+(12, 3, '20170917113301828000.JPG'),
+(13, 3, '20170917113301942261.JPG'),
+(14, 3, '20170917113301109472.JPG'),
+(15, 3, '20170917113301294883.JPG'),
+(16, 3, '20170917113301232514.JPG'),
+(17, 3, '20170917113301846965.jpg'),
+(18, 3, '2017091711330127466.JPG'),
+(19, 3, '20170917113301721537.JPG'),
+(20, 3, '20170917113301475678.jpg'),
+(21, 3, '2017091711330165319.JPG');
 
 -- --------------------------------------------------------
 
@@ -113,8 +96,32 @@ CREATE TABLE `detailpackage` (
   `id_detail_package` int(11) NOT NULL,
   `id_package` int(11) NOT NULL,
   `price` int(50) NOT NULL,
-  `package_name` varchar(50) NOT NULL
+  `package_name` varchar(50) NOT NULL,
+  `max_people` int(2) NOT NULL,
+  `min_people` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `detailpackage`
+--
+
+INSERT INTO `detailpackage` (`id_detail_package`, `id_package`, `price`, `package_name`, `max_people`, `min_people`) VALUES
+(1, 2, 3900000, '2 - 3 participants = Rp. 3.900.000 / person', 3, 2),
+(2, 2, 3800000, '4 - 6 participants = Rp. 3.800.000 / person', 6, 4),
+(3, 2, 3700000, '7 - 10 participants = Rp. 3.700.000 / person', 10, 7),
+(4, 2, 3600000, '11 - 15 participants = Rp. 3.700.000 / person', 15, 11),
+(5, 3, 3200000, '2 - 3 participants = Rp. 3.200.000 / person', 3, 2),
+(6, 3, 3150000, '4 - 6 participants = Rp. 3.150.000 / person', 6, 4),
+(7, 3, 3000000, '7 - 10 participants = Rp. 3,000,000 / person', 10, 7),
+(8, 3, 2850000, '11-15 participants = Rp. 2.850.000 / person', 15, 11),
+(9, 4, 2900000, '2 - 3 participants = Rp. 2.900.000 / person', 3, 1),
+(10, 4, 2700000, '4 - 6 participants = Rp. 2.700.000 / person', 6, 4),
+(11, 4, 2500000, '7 - 10 participants = Rp. 2.500.000 / person', 10, 7),
+(12, 4, 2300000, '11-15 participants: Rp. 2.300.000 / person', 15, 11),
+(13, 5, 2800000, '2 - 3 participants = Rp. 2.800.000 / person', 3, 2),
+(14, 5, 2600000, '4 - 6 participants = Rp. 2.600.000 / person', 6, 4),
+(15, 5, 2400000, '7 - 10 participants = Rp. 2.400.000 / person', 10, 7),
+(16, 5, 2200000, ' 11-15 participants = Rp. 2.200.000 / person', 15, 11);
 
 -- --------------------------------------------------------
 
@@ -146,7 +153,7 @@ CREATE TABLE `galery` (
 --
 
 INSERT INTO `galery` (`id_galary`, `upload_date`, `name_galery`) VALUES
-(2, '2017-09-16', 'Muncak Rinjani');
+(3, '2017-09-17', 'Upload new');
 
 -- --------------------------------------------------------
 
@@ -168,13 +175,6 @@ CREATE TABLE `order_package` (
   `islocal` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `order_package`
---
-
-INSERT INTO `order_package` (`id_order`, `name`, `email`, `no_telpon`, `id_package`, `number_people`, `pickup_location`, `date_pickup`, `date_order`, `total_price`, `islocal`) VALUES
-(34, 'Mujur Indra Jati', 'mujurindrajati@gmail.com', 2147483647, 1, 9, 'Bandara', '2017-09-20', '2017-09-12', 0, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -192,7 +192,10 @@ CREATE TABLE `package` (
 --
 
 INSERT INTO `package` (`id_package`, `package_name`, `islocal`) VALUES
-(1, 'makan', 0);
+(2, 'Climb 5 days 4 nights', 1),
+(3, 'Climb 4 days 3 nights', 1),
+(4, 'Climb 3 days 2 nights', 1),
+(5, 'Climb 2 days 1 nights', 1);
 
 -- --------------------------------------------------------
 
@@ -206,18 +209,6 @@ CREATE TABLE `user` (
   `email` varchar(50) NOT NULL,
   `password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`userid`, `name`, `email`, `password`) VALUES
-(1, '', '', ''),
-(2, 'Mujur Indra Jati', 'mujurindrajati@gmail.com', 'ere'),
-(3, '', '', ''),
-(4, 'test', 'mujurindrajati@gmail.com', 'tyy'),
-(5, 'sahrun', 'sahrun@gmail.com', 'vccvc'),
-(6, 'sahrun', 'sahrun@gmail.com', 'vccvc');
 
 --
 -- Indexes for dumped tables
@@ -310,12 +301,12 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `detailgalery`
 --
 ALTER TABLE `detailgalery`
-  MODIFY `id_detail_galery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_detail_galery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `detailpackage`
 --
 ALTER TABLE `detailpackage`
-  MODIFY `id_detail_package` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_detail_package` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `food`
 --
@@ -325,7 +316,7 @@ ALTER TABLE `food`
 -- AUTO_INCREMENT for table `galery`
 --
 ALTER TABLE `galery`
-  MODIFY `id_galary` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_galary` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `order_package`
 --
@@ -335,7 +326,7 @@ ALTER TABLE `order_package`
 -- AUTO_INCREMENT for table `package`
 --
 ALTER TABLE `package`
-  MODIFY `id_package` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_package` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `user`
 --
