@@ -24,6 +24,9 @@ GetDataGaleryIndex($connection);
 case 'update':
 	UpdateGalery($connection);
 	break;
+case 'GatAllGalery':
+	GetGaleryAll($connection);
+	break;
 default:
 echo "service Not Found";
 }
@@ -138,6 +141,27 @@ function GetDataGaleryIndex($connection){
 	if($Galery){
 	while ($rw = mysqli_fetch_array($Galery)) {
 		$data[] = array('photoName' => $rw['foto']);
+	}
+	echo json_encode($data);
+		} else {
+		echo "Terjadi Kesalahan" . mysqli_error($connection);
+		}
+}
+
+function GetGaleryAll($connection){
+	$data = array();
+	$detailGaleryArray = array();
+    $Galery = mysqli_query($connection, "SELECT * FROM galery");
+	if($Galery){
+	while ($rw = mysqli_fetch_array($Galery)) {
+		$detailGaleryArray = array();
+		$GaleryDitail = mysqli_query($connection, "SELECT * FROM detailgalery WHERE id_galery = $rw[id_galary]");
+		if($GaleryDitail){
+         while ($rs = mysqli_fetch_array($GaleryDitail)) {
+	 	$detailGaleryArray[] = array('foto' => $rs['foto']);
+	   }
+	 }
+	 $data[] = array('nameGalery' => $rw['name_galery'],'detail'=>$detailGaleryArray);
 	}
 	echo json_encode($data);
 		} else {
