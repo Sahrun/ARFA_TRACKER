@@ -21,6 +21,9 @@ switch ($request) {
     case 'gatDataTransctionOrder':
         GetDataTransctionOrder($connection);
         break;
+    case 'GetNamePakage':
+    	 GetDataNamePakage($connection,$_GET['id']);
+    	break;
         
     default:
      echo "service Not Found";
@@ -89,4 +92,17 @@ if ($result) {
 		echo "Terjadi Kesalahan" . mysqli_error($connection);
 		}
     }
+ function GetDataNamePakage(){
+ 	$GetPackage="SELECT * FROM package";
+   $result = mysqli_query($connection, $GetPackage);
+   if ($result) {
+	     $data = array();
+	     while ($rw = mysqli_fetch_array($result)) {
+	     	$data[] = array('id_package' => $rw['id_package'],'package_name'=>$rw['package_name']);
+	     }
+	     echo json_encode($data);
+		} else {
+		echo "Terjadi Kesalahan" . mysqli_error($connection);
+		}
+ }
 ?>

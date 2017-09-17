@@ -81,67 +81,69 @@
 											<!-- Tab panes -->
 											<div class="tab-content">
 												<div role="tabpanel" class="tab-pane active" id="packages">
-													<div class="row">
-														<div class="col-xxs-12 col-xs-6 mt">
-															<div class="input-field">
-																<label for="from">Name:</label>
-																<input type="text" name="name" id="name" class="form-control" placeholder="Enter Full Name">
+													<form action="viewTransction.php" method="POST" >
+														<div class="row">
+															<div class="col-xxs-12 col-xs-6 mt">
+																<div class="input-field">
+																	<label for="from">Name:</label>
+																	<input type="text" name="name" id="name" class="form-control" placeholder="Enter Full Name">
+																</div>
+															</div>
+															<div class="col-xxs-12 col-xs-6 mt">
+																<div class="input-field">
+																	<label for="from">Email:</label>
+																	<input type="email" name="email" id="email" class="form-control" placeholder="Enter Email">
+																</div>
+															</div>
+															<div class="col-xxs-12 col-xs-6 mt">
+																<div class="input-field">
+																	<label for="from">Phone Number:</label>
+																	<input type="text" name="no_telp" id="no_telp" class="form-control" placeholder="Enter Phone Number">
+																</div>
+															</div>
+															<div class="col-xxs-12 col-xs-6 mt">
+																<section>
+																	<label for="class">Where Are You From:</label>
+																	<select id="from" class="form-control" name="from">
+																		<option value="">Select</option>
+																		<option value="1">Local</option>
+																		<option value="2">International</option>
+																	</select>
+																</section>
+															</div>
+															<div class="col-xxs-12 col-xs-6 mt">
+																<section>
+																	<label for="class">Package:</label>
+																	<select id="package" class="form-control" name="package">
+																		<option value="">Select</option>
+																	</select>
+																</section>
+															</div>
+															<div class="col-xxs-12 col-xs-6 mt">
+																<div class="input-field">
+																	<label for="from">Number of people going on trek:</label>
+																	<input type="text" name="numberpeople" id="numberpeople" class="form-control" placeholder="Enter Number of People">
+																</div>
+															</div>
+															<div class="col-xxs-12 col-xs-6 mt">
+																<div class="input-field">
+																	<label for="from">Pickup Location:</label>
+																	<input type="text" name="pickup_location" id="pickup_location" class="form-control" placeholder="Enter Pickup Location">
+																</div>
+															</div>
+															<div class="col-xxs-12 col-xs-6 mt">
+																<div class="input-field">
+																	<label for="from">Date of Pickup:</label>
+																	<input class="form-control" type="text" id="DatePickup" name="DatePickup" data-date-format='yy-mm-dd' placeholder="Enter Date of Pickup">
+																</div>
+															</div>
+															<div class="form-group">
+																<div class="col-xs-12">
+																	<button id="save" class="btn btn-primary btn-block">Booking</button>
+																</div>
 															</div>
 														</div>
-														<div class="col-xxs-12 col-xs-6 mt">
-															<div class="input-field">
-																<label for="from">Email:</label>
-																<input type="email" name="email" id="email" class="form-control" placeholder="Enter Email">
-															</div>
-														</div>
-														<div class="col-xxs-12 col-xs-6 mt">
-															<div class="input-field">
-																<label for="from">Phone Number:</label>
-																<input type="text" name="no_telp" id="no_telp" class="form-control" placeholder="Enter Phone Number">
-															</div>
-														</div>
-														<div class="col-xxs-12 col-xs-6 mt">
-															<section>
-																<label for="class">Where Are You From:</label>
-																<select id="from" class="form-control">
-																	<option value="">Select</option>
-																	<option value="1">Local</option>
-																	<option value="2">International</option>
-																</select>
-															</section>
-														</div>
-														<div class="col-xxs-12 col-xs-6 mt">
-															<section>
-																<label for="class">Package:</label>
-																<select id="package" class="form-control">
-																	<option value="">Select</option>
-																</select>
-															</section>
-														</div>
-														<div class="col-xxs-12 col-xs-6 mt">
-															<div class="input-field">
-																<label for="from">Number of people going on trek:</label>
-																<input type="text" name="numberpeople" id="numberpeople" class="form-control" placeholder="Enter Number of People">
-															</div>
-														</div>
-														<div class="col-xxs-12 col-xs-6 mt">
-															<div class="input-field">
-																<label for="from">Pickup Location:</label>
-																<input type="text" name="pickup_location" id="pickup_location" class="form-control" placeholder="Enter Pickup Location">
-															</div>
-														</div>
-														<div class="col-xxs-12 col-xs-6 mt">
-															<div class="input-field">
-																<label for="from">Date of Pickup:</label>
-																<input class="form-control" type="text" id="DatePickup"  data-date-format='yy-mm-dd' placeholder="Enter Date of Pickup">
-															</div>
-														</div>
-														<div class="form-group">
-															<div class="col-xs-12">
-																<button id="save" class="btn btn-primary btn-block">Booking</button>
-															</div>
-														</div>
-													</div>
+													</form>
 												</div>
 												<div role="tabpanel" class="tab-pane" id="hotels">
 													<div class="row">
@@ -212,7 +214,6 @@
 														</div>
 													</div>
 												</div>
-												</div>
 											</div>
 										</div>
 									</div>
@@ -221,207 +222,208 @@
 						</div>
 					</div>
 				</div>
-				<div id="fh5co-destination" style="padding-left: 100px; padding-right: 100px; padding-top: 100px;">
-					<div class="tour-fluid">
-						<div class="row">
-							<div class="col-md-12">
-								<ul id="fh5co-destination-list" class="animate-box" >
-								</div>
+			</div>
+			<div id="fh5co-destination" style="padding-left: 100px; padding-right: 100px; padding-top: 100px;">
+				<div class="tour-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<ul id="fh5co-destination-list" class="animate-box" >
 							</div>
 						</div>
 					</div>
-					<div id="fh5co-blog-section" class="fh5co-section-gray">
+				</div>
+				<div id="fh5co-blog-section" class="fh5co-section-gray">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+								<h3>Recent From Blog</h3>
+							</div>
+						</div>
+					</div>
+					<div class="container">
+						<div class="row row-bottom-padded-md">
+							<div class="col-lg-4 col-md-4 col-sm-6">
+								<div class="fh5co-blog animate-box">
+									<a href="#"><img class="img-responsive" src="images/place-1.jpg" alt=""></a>
+									<div class="blog-text">
+										<div class="prod-title">
+											<h3><a href="#">30% Discount to Travel All Around the World</a></h3>
+											<span class="posted_by">Sep. 15th</span>
+											<span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
+											<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+											<p><a href="#">Learn More...</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-6">
+								<div class="fh5co-blog animate-box">
+									<a href="#"><img class="img-responsive" src="images/place-2.jpg" alt=""></a>
+									<div class="blog-text">
+										<div class="prod-title">
+											<h3><a href="#">Planning for Vacation</a></h3>
+											<span class="posted_by">Sep. 15th</span>
+											<span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
+											<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+											<p><a href="#">Learn More...</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="clearfix visible-sm-block"></div>
+							<div class="col-lg-4 col-md-4 col-sm-6">
+								<div class="fh5co-blog animate-box">
+									<a href="#"><img class="img-responsive" src="images/place-3.jpg" alt=""></a>
+									<div class="blog-text">
+										<div class="prod-title">
+											<h3><a href="#">Visit Tokyo Japan</a></h3>
+											<span class="posted_by">Sep. 15th</span>
+											<span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
+											<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+											<p><a href="#">Learn More...</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="clearfix visible-md-block"></div>
+						</div>
+						<div class="col-md-12 text-center animate-box">
+							<p><a class="btn btn-primary btn-outline btn-lg" href="#">See All Post <i class="icon-arrow-right22"></i></a></p>
+						</div>
+					</div>
+				</div>
+				<footer>
+					<div id="footer">
 						<div class="container">
 							<div class="row">
-								<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-									<h3>Recent From Blog</h3>
+								<div class="col-md-6 col-md-offset-3 text-center">
+									<p class="fh5co-social-icons">
+										<a href="#"><i class="icon-twitter2"></i></a>
+										<a href="#"><i class="icon-facebook2"></i></a>
+										<a href="#"><i class="icon-instagram"></i></a>
+										<a href="#"><i class="icon-dribbble2"></i></a>
+										<a href="#"><i class="icon-youtube"></i></a>
+									</p>
+									<p>Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights Reserved. <br>Made with <i class="icon-heart3"></i> by <a href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> / Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
 								</div>
-							</div>
-						</div>
-						<div class="container">
-							<div class="row row-bottom-padded-md">
-								<div class="col-lg-4 col-md-4 col-sm-6">
-									<div class="fh5co-blog animate-box">
-										<a href="#"><img class="img-responsive" src="images/place-1.jpg" alt=""></a>
-										<div class="blog-text">
-											<div class="prod-title">
-												<h3><a href="#">30% Discount to Travel All Around the World</a></h3>
-												<span class="posted_by">Sep. 15th</span>
-												<span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
-												<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-												<p><a href="#">Learn More...</a></p>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-4 col-md-4 col-sm-6">
-									<div class="fh5co-blog animate-box">
-										<a href="#"><img class="img-responsive" src="images/place-2.jpg" alt=""></a>
-										<div class="blog-text">
-											<div class="prod-title">
-												<h3><a href="#">Planning for Vacation</a></h3>
-												<span class="posted_by">Sep. 15th</span>
-												<span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
-												<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-												<p><a href="#">Learn More...</a></p>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="clearfix visible-sm-block"></div>
-								<div class="col-lg-4 col-md-4 col-sm-6">
-									<div class="fh5co-blog animate-box">
-										<a href="#"><img class="img-responsive" src="images/place-3.jpg" alt=""></a>
-										<div class="blog-text">
-											<div class="prod-title">
-												<h3><a href="#">Visit Tokyo Japan</a></h3>
-												<span class="posted_by">Sep. 15th</span>
-												<span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
-												<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-												<p><a href="#">Learn More...</a></p>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="clearfix visible-md-block"></div>
-							</div>
-							<div class="col-md-12 text-center animate-box">
-								<p><a class="btn btn-primary btn-outline btn-lg" href="#">See All Post <i class="icon-arrow-right22"></i></a></p>
 							</div>
 						</div>
 					</div>
-					<footer>
-						<div id="footer">
-							<div class="container">
-								<div class="row">
-									<div class="col-md-6 col-md-offset-3 text-center">
-										<p class="fh5co-social-icons">
-											<a href="#"><i class="icon-twitter2"></i></a>
-											<a href="#"><i class="icon-facebook2"></i></a>
-											<a href="#"><i class="icon-instagram"></i></a>
-											<a href="#"><i class="icon-dribbble2"></i></a>
-											<a href="#"><i class="icon-youtube"></i></a>
-										</p>
-										<p>Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights Reserved. <br>Made with <i class="icon-heart3"></i> by <a href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> / Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</footer>
-					
-				</div>
-				<!-- END fh5co-page -->
+				</footer>
+				
 			</div>
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content" style="border-radius: 0px;">
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						</div>
+			<!-- END fh5co-page -->
+		</div>
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content" style="border-radius: 0px;">
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 					</div>
 				</div>
 			</div>
-			<script src="js/jquery.min.js"></script>
-			<!-- jQuery Easing -->
-			<script src="js/jquery.easing.1.3.js"></script>
-			<!-- Bootstrap -->
-			<script src="js/bootstrap.min.js"></script>
-			<!-- Waypoints -->
-			<script src="js/jquery.waypoints.min.js"></script>
-			<script src="js/sticky.js"></script>
-			<!-- Stellar -->
-			<script src="js/jquery.stellar.min.js"></script>
-			<!-- Superfish -->
-			<script src="js/hoverIntent.js"></script>
-			<script src="js/superfish.js"></script>
-			<!-- Magnific Popup -->
-			<script src="js/jquery.magnific-popup.min.js"></script>
-			<script src="js/magnific-popup-options.js"></script>
-			<!-- Date Picker -->
-			<script src="js/bootstrap-datepicker.min.js"></script>
-			<!-- CS Select -->
-			<script src="js/classie.js"></script>
-			<script src="js/selectFx.js"></script>
-			
-			<!-- Main JS -->
-			<script src="js/main.js"></script>
-			<script>
-			$( function() {
-			$("#DatePickup").datepicker({autoclose: true,format: "dd/mm/yyyy"});
-			});
-			</script>
-			<!-- ACTION BOOKING-->
-			<script type="text/javascript">
-				GetPackege();
-				GetDataGalery();
-				$("#save").click(function(){
-				create();
-				});
-				function create() {
-					var name = $("#name").val();
-					var email = $("#email").val();
-					var no_telp = $("#no_telp").val();
-					//var package = $("#package").val();
-					var package = 1;
-					var numberpeople = $("#numberpeople").val();
-					var pickupLocation = $("#pickup_location").val();
-					TemArray = $("#DatePickup").val().split("/");
-					var datePickup = TemArray[2]+"-"+TemArray[1]+"-"+TemArray[0];
-					var data ={proses: "input", name: name,email:email,no_telp:no_telp,package:package,numberpeople:numberpeople,pickupLocation:pickupLocation,datePickup:datePickup};
-				$.ajax({
-				url:"Service/TransactionInput.php", //the page containing php script
-				type: "post", //request type,
-				dataType: "json",
-				data: data,
-				success: function() {
-				alert("Transaksi Berhasil");
-				window.location.replace("index.html");
-				},
-				error: function() {
-				alert("Terjadi Kesalahan Silahkan Ulangi!");
-				}
-				});
-				}
-				function GetPackege(){
-				$.ajax({
-				url:"Service/TransactionInput.php", //the page containing php script
-				type: "get", //request type,
-				dataType: "json",
-				data: {req:'getPackage'},
-				success: function(data) {
-				$.each(data, function (i, item) {
-				$('#package').append($('<option>', {
-										value: item['id_package'],
-										text : item['package_name']
-										}));
-										});
-										},
-										error: function() {
-										alert("Terjadi Kesalahan");
-										}
-										});
-										}
-							function GetDataGalery(){
-							$.ajax({
-							url:"Service/Galery.php", //the page containing php script
-							type: "get", //request type,
-							dataType: "json",
-							data: {req:'GetGaleryIndex'},
-							success: function(data) {
-								$.each(data, function (i, item) {
-							if(i == 5){
-						$("#fh5co-destination-list").append("<li class='one-half text-center'><div class='title-bg'><div class='case-studies-summary'><span><a href='Galery.html'>View All Galery</a></span></div></div></li>");
-						$("#fh5co-destination-list").append("<li class='one-forth text-center' style='background-image: url(images/Galery/"+item['photoName']+");'><a><div class='case-studies-summary'></div></a></li>");
-							}else{
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<!-- jQuery Easing -->
+		<script src="js/jquery.easing.1.3.js"></script>
+		<!-- Bootstrap -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- Waypoints -->
+		<script src="js/jquery.waypoints.min.js"></script>
+		<script src="js/sticky.js"></script>
+		<!-- Stellar -->
+		<script src="js/jquery.stellar.min.js"></script>
+		<!-- Superfish -->
+		<script src="js/hoverIntent.js"></script>
+		<script src="js/superfish.js"></script>
+		<!-- Magnific Popup -->
+		<script src="js/jquery.magnific-popup.min.js"></script>
+		<script src="js/magnific-popup-options.js"></script>
+		<!-- Date Picker -->
+		<script src="js/bootstrap-datepicker.min.js"></script>
+		<!-- CS Select -->
+		<script src="js/classie.js"></script>
+		<script src="js/selectFx.js"></script>
+		
+		<!-- Main JS -->
+		<script src="js/main.js"></script>
+		<script>
+		$( function() {
+		$("#DatePickup").datepicker({autoclose: true,format: "dd/mm/yyyy"});
+		});
+		</script>
+		<!-- ACTION BOOKING-->
+		<script type="text/javascript">
+			GetPackege();
+			GetDataGalery();
+			// $("#save").click(function(){
+			// create();
+			// });
+			//function create() {
+			// 	var name = $("#name").val();
+			// 	var email = $("#email").val();
+			// 	var no_telp = $("#no_telp").val();
+			// 	//var package = $("#package").val();
+			// 	var package = 1;
+			// 	var numberpeople = $("#numberpeople").val();
+			// 	var pickupLocation = $("#pickup_location").val();
+			// 	TemArray = $("#DatePickup").val().split("/");
+			// 	var datePickup = TemArray[2]+"-"+TemArray[1]+"-"+TemArray[0];
+			// 	var data ={proses: "input", name: name,email:email,no_telp:no_telp,package:package,numberpeople:numberpeople,pickupLocation:pickupLocation,datePickup:datePickup};
+			// $.ajax({
+			// url:"Service/TransactionInput.php", //the page containing php script
+			// type: "post", //request type,
+			// dataType: "json",
+			// data: data,
+			// success: function() {
+			// alert("Transaksi Berhasil");
+			// window.location.replace("index.html");
+			// },
+			// error: function() {
+			// alert("Terjadi Kesalahan Silahkan Ulangi!");
+			// }
+			// });
+			//}
+			function GetPackege(){
+			$.ajax({
+			url:"Service/TransactionInput.php", //the page containing php script
+			type: "get", //request type,
+			dataType: "json",
+			data: {req:'getPackage'},
+			success: function(data) {
+			$.each(data, function (i, item) {
+			$('#package').append($('<option>', {
+											value: item['id_package'],
+											text : item['package_name']
+											}));
+											});
+											},
+											error: function() {
+											alert("Terjadi Kesalahan");
+											}
+											});
+											}
+			function GetDataGalery(){
+								$.ajax({
+								url:"Service/Galery.php", //the page containing php script
+								type: "get", //request type,
+								dataType: "json",
+								data: {req:'GetGaleryIndex'},
+								success: function(data) {
+									$.each(data, function (i, item) {
+								if(i == 5){
+							$("#fh5co-destination-list").append("<li class='one-half text-center'><div class='title-bg'><div class='case-studies-summary'><span><a href='Galery.html'>View All Galery</a></span></div></div></li>");
 							$("#fh5co-destination-list").append("<li class='one-forth text-center' style='background-image: url(images/Galery/"+item['photoName']+");'><a><div class='case-studies-summary'></div></a></li>");
-							}
-							});
-							},
-							error: function() {
-							alert("Terjadi Kesalahan Silahkan Ulangi!");
-							}
-							});
-							}
-				</script>
-			</body>
-		</html>
+								}else{
+								$("#fh5co-destination-list").append("<li class='one-forth text-center' style='background-image: url(images/Galery/"+item['photoName']+");'><a><div class='case-studies-summary'></div></a></li>");
+								}
+								});
+								},
+								error: function() {
+								alert("Terjadi Kesalahan Silahkan Ulangi!");
+								}
+								});
+								}
+			</script>
+		</body>
+	</html>
