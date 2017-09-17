@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2017 at 09:52 AM
+-- Generation Time: Sep 17, 2017 at 10:00 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.5.33
 
@@ -112,7 +112,8 @@ INSERT INTO `detailgalery` (`id_detail_galery`, `id_galery`, `foto`) VALUES
 CREATE TABLE `detailpackage` (
   `id_detail_package` int(11) NOT NULL,
   `id_package` int(11) NOT NULL,
-  `price` int(50) NOT NULL
+  `price` int(50) NOT NULL,
+  `package_name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
