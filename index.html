@@ -39,6 +39,11 @@
 		<link rel="stylesheet" href="css/style.css">
 		<!-- Modernizr JS -->
 		<script src="js/modernizr-2.6.2.min.js"></script>
+		<style type="text/css">
+			.messages{
+				color: red;
+			}
+		</style>
 	</head>
 	<body>
 		<div id="fh5co-wrapper">
@@ -81,18 +86,20 @@
 											<!-- Tab panes -->
 											<div class="tab-content">
 												<div role="tabpanel" class="tab-pane active" id="packages">
-													<form action="viewTransction.php" method="POST" >
+													<form action="viewTransction.php" method="POST" name="FormOrder" onsubmit="return validateForm()">
 														<div class="row">
 															<div class="col-xxs-12 col-xs-6 mt">
 																<div class="input-field">
 																	<label for="from">Name:</label>
 																	<input type="text" name="name" id="name" class="form-control" placeholder="Enter Full Name">
+																	<span id="message_name" class="messages" >Name requared</span>
 																</div>
 															</div>
 															<div class="col-xxs-12 col-xs-6 mt">
 																<div class="input-field">
 																	<label for="from">Email:</label>
 																	<input type="email" name="email" id="email" class="form-control" placeholder="Enter Email">
+																	<span id="message_email" class="messages" >Email requared</span>
 																</div>
 															</div>
 															<div class="col-xxs-12 col-xs-6 mt">
@@ -103,12 +110,14 @@
 																		<option value="1">Local</option>
 																		<option value="2">International</option>
 																	</select>
+																	<span id="message_from" class="messages" >From requared</span>
 																</section>
 															</div>
 															<div class="col-xxs-12 col-xs-6 mt">
 																<div class="input-field">
 																	<label for="from">Phone Number:</label>
 																	<input type="text" name="no_telp" id="no_telp" class="form-control" placeholder="Enter Phone Number">
+																	<span id="message_no_telp" class="messages" >No Telp requared</span>
 																</div>
 															</div>
 															<div class="col-xxs-12 col-xs-6 mt">
@@ -117,32 +126,37 @@
 																	<select id="package" class="form-control" name="package">
 																		<option value="">Select</option>
 																	</select>
+																	<span id="message_package" class="messages" >Package requared</span>
 																</section>
 															</div>
 															<div class="col-xxs-12 col-xs-6 mt">
 																<div class="input-field">
 																	<label for="from">Number of people going on trek:</label>
 																	<input type="text" name="numberpeople" id="numberpeople" class="form-control" placeholder="Enter Number of People">
+																	<span id="message_numberpeople" class="messages" >Number People requared</span>
 																</div>
 															</div>
 															<div class="col-xxs-12 col-xs-6 mt">
 																<section>
 																	<label for="class">Detail Package:</label>
-																	<select id="package" class="form-control" name="package">
+																	<select id="detpackage" class="form-control" name="detpackage">
 																		<option value="">Select</option>
 																	</select>
+																	<span id="message_detpackage" class="messages" >det package requared</span>
 																</section>
 															</div>
 															<div class="col-xxs-12 col-xs-6 mt">
 																<div class="input-field">
 																	<label for="from">Pickup Location:</label>
 																	<input type="text" name="pickup_location" id="pickup_location" class="form-control" placeholder="Enter Pickup Location">
+																	<span id="message_pickup_location" class="messages" >Pickup Location requared</span>
 																</div>
 															</div>
 															<div class="col-xxs-12 col-xs-6 mt">
 																<div class="input-field">
 																	<label for="from">Date of Pickup:</label>
-																	<input class="form-control" type="text" id="DatePickup" name="DatePickup" data-date-format='yy-mm-dd' placeholder="Enter Date of Pickup">
+																	<input class="form-control" type="text" id="DatePickup" name="datePickup" data-date-format='yy-mm-dd' placeholder="Enter Date of Pickup">
+																	<span id="message_datePickup" class="messages" >Date Pickup requared</span>
 																</div>
 															</div>
 															<div class="form-group">
@@ -362,22 +376,23 @@
 		</script>
 		<!-- ACTION BOOKING-->
 		<script type="text/javascript">
+		$(".messages").hide();
 			GetPackege();
 			GetDataGalery();
 			// $("#save").click(function(){
 			// create();
 			// });
 			//function create() {
-			// 	var name = $("#name").val();
-			// 	var email = $("#email").val();
-			// 	var no_telp = $("#no_telp").val();
-			// 	//var package = $("#package").val();
-			// 	var package = 1;
-			// 	var numberpeople = $("#numberpeople").val();
-			// 	var pickupLocation = $("#pickup_location").val();
-			// 	TemArray = $("#DatePickup").val().split("/");
-			// 	var datePickup = TemArray[2]+"-"+TemArray[1]+"-"+TemArray[0];
-			// 	var data ={proses: "input", name: name,email:email,no_telp:no_telp,package:package,numberpeople:numberpeople,pickupLocation:pickupLocation,datePickup:datePickup};
+							// 	var name = $("#name").val();
+							// 	var email = $("#email").val();
+							// 	var no_telp = $("#no_telp").val();
+							// 	//var package = $("#package").val();
+							// 	var package = 1;
+							// 	var numberpeople = $("#numberpeople").val();
+							// 	var pickupLocation = $("#pickup_location").val();
+							// 	TemArray = $("#DatePickup").val().split("/");
+							// 	var datePickup = TemArray[2]+"-"+TemArray[1]+"-"+TemArray[0];
+							// 	var data ={proses: "input", name: name,email:email,no_telp:no_telp,package:package,numberpeople:numberpeople,pickupLocation:pickupLocation,datePickup:datePickup};
 			// $.ajax({
 			// url:"Service/TransactionInput.php", //the page containing php script
 			// type: "post", //request type,
@@ -401,36 +416,106 @@
 			success: function(data) {
 			$.each(data, function (i, item) {
 			$('#package').append($('<option>', {
-											value: item['id_package'],
-											text : item['package_name']
-											}));
-											});
-											},
-											error: function() {
-											alert("Terjadi Kesalahan");
-											}
-											});
-											}
-			function GetDataGalery(){
-								$.ajax({
-								url:"Service/Galery.php", //the page containing php script
-								type: "get", //request type,
-								dataType: "json",
-								data: {req:'GetGaleryIndex'},
-								success: function(data) {
-									$.each(data, function (i, item) {
-								if(i == 5){
-							$("#fh5co-destination-list").append("<li class='one-half text-center'><div class='title-bg'><div class='case-studies-summary'><span><a href='Galery.html'>View All Galery</a></span></div></div></li>");
-							$("#fh5co-destination-list").append("<li class='one-forth text-center' style='background-image: url(images/Galery/"+item['photoName']+");'><a><div class='case-studies-summary'></div></a></li>");
-								}else{
-								$("#fh5co-destination-list").append("<li class='one-forth text-center' style='background-image: url(images/Galery/"+item['photoName']+");'><a><div class='case-studies-summary'></div></a></li>");
-								}
-								});
-								},
-								error: function() {
-								alert("Terjadi Kesalahan Silahkan Ulangi!");
-								}
-								});
+															value: item['id_package'],
+															text : item['package_name']
+															}));
+															});
+															},
+															error: function() {
+															alert("Terjadi Kesalahan");
+															}
+															});
+															}
+							function GetDataGalery(){
+												$.ajax({
+												url:"Service/Galery.php", //the page containing php script
+												type: "get", //request type,
+												dataType: "json",
+												data: {req:'GetGaleryIndex'},
+												success: function(data) {
+													$.each(data, function (i, item) {
+												if(i == 5){
+											$("#fh5co-destination-list").append("<li class='one-half text-center'><div class='title-bg'><div class='case-studies-summary'><span><a href='Galery.html'>View All Galery</a></span></div></div></li>");
+											$("#fh5co-destination-list").append("<li class='one-forth text-center' style='background-image: url(images/Galery/"+item['photoName']+");'><a><div class='case-studies-summary'></div></a></li>");
+												}else{
+												$("#fh5co-destination-list").append("<li class='one-forth text-center' style='background-image: url(images/Galery/"+item['photoName']+");'><a><div class='case-studies-summary'></div></a></li>");
+												}
+												});
+												},
+												error: function() {
+												alert("Terjadi Kesalahan Silahkan Ulangi!");
+												}
+												});
+												}
+							function validateForm(){
+								var name = document.forms["FormOrder"]["name"].value;
+								var email = document.forms["FormOrder"]["email"].value;
+								var no_telp = document.forms["FormOrder"]["no_telp"].value;
+								var from = document.forms["FormOrder"]["from"].value;
+								var package = document.forms["FormOrder"]["package"].value;
+								var numberpeople = document.forms["FormOrder"]["numberpeople"].value;
+								var detpackage = document.forms["FormOrder"]["detpackage"].value;
+								var pickup_location = document.forms["FormOrder"]["pickup_location"].value;
+								var datePickup = document.forms["FormOrder"]["datePickup"].value;
+									if (name == "") {
+									$("#message_name").show();
+									
+									}else{
+										$("#message_name").hide();
+									}
+									if (email == "") {
+									$("#message_email").show();
+									
+									}else{
+										$("#message_email").hide();
+									}
+									if (no_telp == "") {
+									$("#message_no_telp").show();
+									
+									}else{
+										$("#message_no_telp").hide();
+									}
+									if (from == "") {
+									$("#message_from").show();
+									
+									}else{
+										$("#message_from").hide();
+									}
+									if (package == "") {
+									$("#message_package").show();
+									
+									}else{
+										$("#message_package").hide();
+									}
+									if (numberpeople == "") {
+									$("#message_numberpeople").show();
+									
+									}else{
+										$("#message_numberpeople").hide();
+									}
+									if (detpackage == "") {
+									$("#message_detpackage").show();
+									
+									}else{
+										$("#message_name").hide();
+									}
+									if (pickup_location == "") {
+									$("#message_pickup_location").show();
+									
+									}else{
+										$("#message_pickup_location").hide();
+									}
+									if (datePickup == "") {
+									$("#message_datePickup").show();
+									
+									}else{
+										$("#message_datePickup").hide();
+									}
+									if(name == "" || email == "" || no_telp == "" || from == "" || package == "" ||
+									numberpeople == "" || detpackage == "" || pickup_location == "" ||
+									datePickup == "" ){
+										return false;
+									}
 								}
 			</script>
 		</body>

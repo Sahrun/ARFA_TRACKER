@@ -136,7 +136,7 @@
 								<label for="from">Date of Pickup:</label>
 							</div>
 							<div class="input-field">
-								<label for="from"><?php $date = str_replace("/","-",$_POST['DatePickup']); 
+								<label for="from"><?php $date = str_replace("/","-",$_POST['datePickup']); 
 								 echo date_format(date_create($date),'d M Y')?></label>
 								<input class="form-control" type="hidden" id="DatePickup"  value="<?php echo $_POST['DatePickup'] ?>">
 							</div>
