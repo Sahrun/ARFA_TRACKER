@@ -105,7 +105,7 @@
 															<div class="col-xxs-12 col-xs-6 mt">
 																<section>
 																	<label for="class">Where Are You From:</label>
-																	<select id="from" class="form-control" name="from">
+																	<select id="from" class="form-control" name="from" onchange="GetPackege()">
 																		<option value="">Select</option>
 																		<option value="1">Local</option>
 																		<option value="2">International</option>
@@ -123,7 +123,7 @@
 															<div class="col-xxs-12 col-xs-6 mt">
 																<section>
 																	<label for="class">Packages:</label>
-																	<select id="package" class="form-control" name="package">
+																	<select id="package" class="form-control" name="package" onchange="GetDetailPackege()">
 																		<option value="">Select</option>
 																	</select>
 																	<span id="message_package" class="messages" >Package requared</span>
@@ -369,16 +369,15 @@
 		
 		<!-- Main JS -->
 		<script src="js/main.js"></script>
-		<script>
+		<!-- ACTION BOOKING-->
+		<script type="text/javascript">
 		$( function() {
 		$("#DatePickup").datepicker({autoclose: true,format: "dd/mm/yyyy"});
 		});
-		</script>
-		<!-- ACTION BOOKING-->
-		<script type="text/javascript">
+		$("#package").prop('disabled', true);
+		$("#detpackage").prop('disabled', true);
 		$(".messages").hide();
-			GetPackege();
-			GetDataGalery();
+		GetDataGalery();
 			// $("#save").click(function(){
 			// create();
 			// });
@@ -408,115 +407,158 @@
 			// });
 			//}
 			function GetPackege(){
+			var Idfrom = $("#from").val();
+			if(Idfrom == ""){
+				$("#package").prop('disabled', true);
+				$("#detpackage").prop('disabled', true);
+				$('#package').empty();
+			    $('#package').append("<option value=''>Select</option>");
+			    $('#detpackage').empty();
+			    $('#detpackage').append("<option value=''>Select</option>");
+			}
+			else{
 			$.ajax({
 			url:"Service/TransactionInput.php", //the page containing php script
 			type: "get", //request type,
 			dataType: "json",
-			data: {req:'getPackage'},
+			data: {req:'getPackage',Idfrom:Idfrom},
 			success: function(data) {
+			$('#package').empty();
+			$('#package').append("<option>Select</option>");
 			$.each(data, function (i, item) {
 			$('#package').append($('<option>', {
-															value: item['id_package'],
-															text : item['package_name']
-															}));
-															});
-															},
-															error: function() {
-															alert("Terjadi Kesalahan");
-															}
-															});
-															}
-							function GetDataGalery(){
-												$.ajax({
-												url:"Service/Galery.php", //the page containing php script
-												type: "get", //request type,
-												dataType: "json",
-												data: {req:'GetGaleryIndex'},
-												success: function(data) {
-													$.each(data, function (i, item) {
-												if(i == 5){
-											$("#fh5co-destination-list").append("<li class='one-half text-center'><div class='title-bg'><div class='case-studies-summary'><span><a href='Galery.html'>View All Galery</a></span></div></div></li>");
-											$("#fh5co-destination-list").append("<li class='one-forth text-center' style='background-image: url(images/Galery/"+item['photoName']+");'><a><div class='case-studies-summary'></div></a></li>");
-												}else{
-												$("#fh5co-destination-list").append("<li class='one-forth text-center' style='background-image: url(images/Galery/"+item['photoName']+");'><a><div class='case-studies-summary'></div></a></li>");
-												}
-												});
-												},
-												error: function() {
-												alert("Terjadi Kesalahan Silahkan Ulangi!");
-												}
-												});
-												}
-							function validateForm(){
-								var name = document.forms["FormOrder"]["name"].value;
-								var email = document.forms["FormOrder"]["email"].value;
-								var no_telp = document.forms["FormOrder"]["no_telp"].value;
-								var from = document.forms["FormOrder"]["from"].value;
-								var package = document.forms["FormOrder"]["package"].value;
-								var numberpeople = document.forms["FormOrder"]["numberpeople"].value;
-								var detpackage = document.forms["FormOrder"]["detpackage"].value;
-								var pickup_location = document.forms["FormOrder"]["pickup_location"].value;
-								var datePickup = document.forms["FormOrder"]["datePickup"].value;
-									if (name == "") {
-									$("#message_name").show();
+									value: item['id_package'],
+									text : item['package_name']
+									}));
+									});
+			$("#package").prop('disabled', false);
+			},
+			error: function() {
+			alert("Terjadi Kesalahan");
+			}
+			});
+			}
+			}
+			function GetDataGalery(){
+					$.ajax({
+					url:"Service/Galery.php", //the page containing php script
+					type: "get", //request type,
+					dataType: "json",
+					data: {req:'GetGaleryIndex'},
+					success: function(data) {
+						$.each(data, function (i, item) {
+							if(i == 5){
+								$("#fh5co-destination-list").append("<li class='one-half text-center'><div class='title-bg'><div class='case-studies-summary'><span><a href='Galery.html'>View All Galery</a></span></div></div></li>");
+								$("#fh5co-destination-list").append("<li class='one-forth text-center' style='background-image: url(images/Galery/"+item['photoName']+");'><a><div class='case-studies-summary'></div></a></li>");
+							}else{
+								$("#fh5co-destination-list").append("<li class='one-forth text-center' style='background-image: url(images/Galery/"+item['photoName']+");'><a><div class='case-studies-summary'></div></a></li>");
+							}
+						});
+					},
+					error: function() {
+						alert("Terjadi Kesalahan Silahkan Ulangi!");
+					}
+					});
+					}
+			function validateForm(){
+					var name = document.forms["FormOrder"]["name"].value;
+					var email = document.forms["FormOrder"]["email"].value;
+					var no_telp = document.forms["FormOrder"]["no_telp"].value;
+					var from = document.forms["FormOrder"]["from"].value;
+					var package = document.forms["FormOrder"]["package"].value;
+					var numberpeople = document.forms["FormOrder"]["numberpeople"].value;
+					var detpackage = document.forms["FormOrder"]["detpackage"].value;
+					var pickup_location = document.forms["FormOrder"]["pickup_location"].value;
+					var datePickup = document.forms["FormOrder"]["datePickup"].value;
+					if (name == "") {
+						$("#message_name").show();
 									
-									}else{
-										$("#message_name").hide();
+					}else{
+						$("#message_name").hide();
 									}
-									if (email == "") {
-									$("#message_email").show();
+					if (email == "") {
+						$("#message_email").show();
 									
-									}else{
-										$("#message_email").hide();
-									}
-									if (no_telp == "") {
-									$("#message_no_telp").show();
+					}else{
+						$("#message_email").hide();
+					}
+					if (no_telp == "") {
+						$("#message_no_telp").show();		
+					}else{
+						$("#message_no_telp").hide();
+					}
+					if (from == "") {
+						$("#message_from").show();
 									
-									}else{
-										$("#message_no_telp").hide();
-									}
-									if (from == "") {
-									$("#message_from").show();
+					}else{
+						$("#message_from").hide();
+					}
+					if (package == "") {
+						$("#message_package").show();
 									
-									}else{
-										$("#message_from").hide();
-									}
-									if (package == "") {
-									$("#message_package").show();
+					}else{
+						$("#message_package").hide();
+					}
+					if (numberpeople == "") {
+						$("#message_numberpeople").show();
 									
-									}else{
-										$("#message_package").hide();
-									}
-									if (numberpeople == "") {
-									$("#message_numberpeople").show();
+					}else{
+						$("#message_numberpeople").hide();
+					}
+					// if (detpackage == "") {
+					// $("#message_detpackage").show();
 									
-									}else{
-										$("#message_numberpeople").hide();
-									}
-									// if (detpackage == "") {
-									// $("#message_detpackage").show();
+					// }else{
+					// 	$("#message_detpackage").hide();
+					// }
+					if (pickup_location == "") {
+					   $("#message_pickup_location").show();
 									
-									// }else{
-									// 	$("#message_detpackage").hide();
-									// }
-									if (pickup_location == "") {
-									$("#message_pickup_location").show();
+					}else{
+						$("#message_pickup_location").hide();
+					}
+					if (datePickup == "") {
+						$("#message_datePickup").show();
 									
-									}else{
-										$("#message_pickup_location").hide();
-									}
-									if (datePickup == "") {
-									$("#message_datePickup").show();
-									
-									}else{
-										$("#message_datePickup").hide();
-									}
-									if(name == "" || email == "" || no_telp == "" || from == "" || package == "" ||
-									numberpeople == "" || pickup_location == "" ||
-									datePickup == ""  ){
-										return false;
-									}
-								}
+					}else{
+						$("#message_datePickup").hide();
+					}
+						if(name == "" || email == "" || no_telp == "" || from == "" || package == "" ||
+							numberpeople == "" || pickup_location == "" ||
+							datePickup == ""  ){
+						return false;
+						}
+					}
+
+				function GetDetailPackege(){
+					var Idpackage = $("#package").val();
+					console.log(Idpackage);
+					if(Idpackage == ""){
+						$("#detpackage").prop('disabled', true);
+					}
+					else{
+					$.ajax({
+					url:"Service/TransactionInput.php", //the page containing php script
+					type: "get", //request type,
+					dataType: "json",
+					data: {req:'getDetPackage',Idpackage:Idpackage},
+					success: function(data) {
+					$('#detpackage').empty();
+					$('#detpackage').append("<option>Select</option>");
+					$.each(data, function (i, item) {
+					$('#detpackage').append($('<option>', {
+											value: item['id_detail_package'],
+											text : item['package_name']
+											}));
+											});
+					$("#detpackage").prop('disabled', false);
+					},
+					error: function() {
+					alert("Terjadi Kesalahan");
+					}
+					});
+					}
+				}
 			</script>
 		</body>
 	</html>

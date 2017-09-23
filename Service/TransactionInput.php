@@ -11,12 +11,11 @@ if(isset($_GET['req'])){
 }
 
 switch ($request) {
-
     case 'input':
         InsertOrder($connection);
         break;
     case 'getPackage':
-        GetPackage($connection);
+        GetPackage($connection,$_GET['Idfrom']);
         break;
     case 'gatDataTransctionOrder':
         GetDataTransctionOrder($connection);
@@ -24,7 +23,9 @@ switch ($request) {
     case 'GetNamePakage':
     	 GetDataNamePakage($connection,$_GET['id']);
     	break;
-        
+    case 'getDetPackage':
+    	GetDetPackage($connection,$_GET['Idpackage']);
+    	break;
     default:
      echo "service Not Found";
 }
@@ -48,8 +49,21 @@ switch ($request) {
 // 		}
     }
 
-function GetPackage($connection){
-$GetPackage="SELECT * FROM package";
+function GetDetPackage($connection,$Idpackage){
+$GetDetPackage="SELECT * FROM  detailpackage WHERE id_package = $Idpackage";
+$result = mysqli_query($connection, $GetDetPackage);
+if ($result) {
+	     $data = array();
+	     while ($rw = mysqli_fetch_array($result)) {
+	     	$data[] = array('id_detail_package' => $rw['id_detail_package'],'package_name'=>$rw['package_name']);
+	     }
+	     echo json_encode($data);
+		} else {
+		echo "Terjadi Kesalahan" . mysqli_error($connection);
+		}
+    }
+function GetPackage($connection,$Idfrom){
+$GetPackage="SELECT * FROM  package WHERE islocal = $Idfrom";
 $result = mysqli_query($connection, $GetPackage);
 if ($result) {
 	     $data = array();
