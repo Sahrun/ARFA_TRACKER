@@ -493,12 +493,12 @@
 									}else{
 										$("#message_numberpeople").hide();
 									}
-									if (detpackage == "") {
-									$("#message_detpackage").show();
+									// if (detpackage == "") {
+									// $("#message_detpackage").show();
 									
-									}else{
-										$("#message_name").hide();
-									}
+									// }else{
+									// 	$("#message_detpackage").hide();
+									// }
 									if (pickup_location == "") {
 									$("#message_pickup_location").show();
 									
@@ -512,8 +512,8 @@
 										$("#message_datePickup").hide();
 									}
 									if(name == "" || email == "" || no_telp == "" || from == "" || package == "" ||
-									numberpeople == "" || detpackage == "" || pickup_location == "" ||
-									datePickup == "" ){
+									numberpeople == "" || pickup_location == "" ||
+									datePickup == ""  ){
 										return false;
 									}
 								}

@@ -235,7 +235,7 @@
 					data: data,
 					success: function() {
 					alert("Transaksi Berhasil");
-					window.location.replace("index.html");
+					//window.location.replace("index.html");
 					},
 					error: function() {
 					alert("Terjadi Kesalahan Silahkan Ulangi!");
