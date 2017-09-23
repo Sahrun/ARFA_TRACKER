@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2017 at 12:44 PM
+-- Generation Time: Sep 23, 2017 at 04:12 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.5.33
 
@@ -121,7 +121,23 @@ INSERT INTO `detailpackage` (`id_detail_package`, `id_package`, `price`, `packag
 (13, 5, 2800000, '2 - 3 participants = Rp. 2.800.000 / person', 3, 2),
 (14, 5, 2600000, '4 - 6 participants = Rp. 2.600.000 / person', 6, 4),
 (15, 5, 2400000, '7 - 10 participants = Rp. 2.400.000 / person', 10, 7),
-(16, 5, 2200000, ' 11-15 participants = Rp. 2.200.000 / person', 15, 11);
+(16, 5, 2200000, ' 11-15 participants = Rp. 2.200.000 / person', 15, 11),
+(17, 6, 5400000, '2 - 3 participants = Rp. 5.400.000 / person', 3, 2),
+(18, 6, 5300000, '4 - 6 participants = Rp. 5.300.000 / person', 6, 4),
+(19, 6, 5200000, '7 - 10 participants = Rp. 5.200.000 / person', 10, 7),
+(20, 6, 5100000, '11 - 15 participants = Rp. 5.100.000 / person', 15, 11),
+(21, 7, 4800000, '2 - 3 participants = Rp. 4.800.000 / person', 3, 2),
+(22, 7, 4650000, '4 - 6 participants = Rp. 4.650.000 / person', 6, 4),
+(23, 7, 4500000, '7 - 10 participants = Rp. 4.500.000 / person', 10, 7),
+(24, 7, 4350000, '11 - 15 participants = Rp. 4.350.000 / person', 15, 11),
+(25, 8, 4400000, '2 - 3 participants = Rp. 4.400.000 / person', 3, 2),
+(26, 8, 4200000, '4 - 6 participants = Rp. 4.200.000 / person', 6, 4),
+(27, 8, 4000000, '7 - 10 participants = Rp. 4.000.000 / person', 10, 7),
+(28, 8, 3800000, '11 - 15 participants = Rp. 3.800.000 / person', 15, 11),
+(29, 9, 4300000, '2 - 3 participants = Rp. 4.300.000 / person', 3, 2),
+(30, 9, 4100000, '4 - 6 participants = Rp. 4.100.000 / person', 6, 4),
+(31, 9, 3900000, '7 - 10 participants = Rp. 3.900.000 / person', 10, 7),
+(32, 9, 3700000, '11 - 15 participants = Rp. 3.700.000 / person', 15, 11);
 
 -- --------------------------------------------------------
 
@@ -195,7 +211,11 @@ INSERT INTO `package` (`id_package`, `package_name`, `islocal`) VALUES
 (2, 'Climb 5 days 4 nights', 1),
 (3, 'Climb 4 days 3 nights', 1),
 (4, 'Climb 3 days 2 nights', 1),
-(5, 'Climb 2 days 1 nights', 1);
+(5, 'Climb 2 days 1 nights', 1),
+(6, 'Climb 5 days 4 nights', 2),
+(7, 'Climb 4 days 3 nights', 2),
+(8, 'Climb 3 days 2 nights', 2),
+(9, 'Climb 2 days 1 nights', 2);
 
 -- --------------------------------------------------------
 
@@ -296,7 +316,7 @@ ALTER TABLE `blog_foto`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `detailgalery`
 --
@@ -306,7 +326,7 @@ ALTER TABLE `detailgalery`
 -- AUTO_INCREMENT for table `detailpackage`
 --
 ALTER TABLE `detailpackage`
-  MODIFY `id_detail_package` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_detail_package` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `food`
 --
@@ -321,17 +341,17 @@ ALTER TABLE `galery`
 -- AUTO_INCREMENT for table `order_package`
 --
 ALTER TABLE `order_package`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `package`
 --
 ALTER TABLE `package`
-  MODIFY `id_package` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_package` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --

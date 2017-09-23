@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Arfa Tracker Slow</title>
+		<title>Arfa Trekker Slow</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 		<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
@@ -65,86 +65,85 @@
 					<div class="fh5co-overlay"></div>
 				</div>
 			</div>
+			
 			<div class="row" style="padding-left: 100px; padding-right: 100px; padding-top: 100px;">
+				<div class="col-md-12">
+					<div class="col-md-4"></div>
+					<div class="col-md-6">
+						<h3>Your Detail Order</h3>
+					</div>
+					<div class="col-md-2"></div>
+				</div>
 				<div role="tabpanel" class="tab-pane active" id="packages">
 					<div class="row">
-						<div class="col-xxs-12 col-xs-6 mt">
+						<div class="col-md-2"></div>
+						<div class="col-md-4">
 							<div class="input-field">
 								<label for="from">Name:</label>
 							</div>
 							<div class="input-field">
-								<label ><?php echo $_POST['name']?></label>
+								<span><?php echo $_POST['name']?></span>
 								<input type="hidden" id="name" value="<?php echo $_POST['name']; ?>">
 							</div>
-						</div>
-						<div class="col-xxs-12 col-xs-6 mt">
 							<div class="input-field">
 								<label for="from">Email:</label>
 							</div>
 							<div class="input-field">
-								<label for="from"><?php echo $_POST['email']?></label>
+								<span><?php echo $_POST['email']?></span>
 								<input type="hidden" id="email" value="<?php echo $_POST['email']?>">
 							</div>
-						</div>
-						<div class="col-xxs-12 col-xs-6 mt">
 							<div class="input-field">
 								<label for="from">Phone Number:</label>
 							</div>
 							<div class="input-field">
-								<label for="from"><?php echo $_POST['no_telp'] ?></label>
+								<span><?php echo $_POST['no_telp'] ?></span>
 								<input type="hidden" id="no_telp" value="<?php echo $_POST['no_telp'] ?>" >
 							</div>
-						</div>
-						<div class="col-xxs-12 col-xs-6 mt" >
 							<div class="input-field">
 								<label for="from">Where Are You From:</label>
 							</div>
 							<div class="input-field">
-								<label for="from"><?php if($_POST['from'] == 1){echo "Local";}else if($_POST['from'] == 1){echo "Internasional";} ?></label>
+								<span><?php if($_POST['from'] == 1){echo "Local";}else if($_POST['from'] == 2){echo "Internasional";} ?></span>
 								<input type="hidden" id="from" value="<?php echo $_POST['from'] ?>" >
 							</div>
 						</div>
-						<div class="col-xxs-12 col-xs-6 mt" >
+						<div class="col-md-4">
 							<div class="input-field">
 								<label for="from">Package:</label>
 							</div>
 							<div class="input-field">
-								<label for="from" id="PackageName"></label>
+								<span for="from" id="PackageName"></span>
 								<input type="hidden" id="package" value="<?php echo $_POST['package'] ?>" >
 							</div>
-						</div>
-						<div class="col-xxs-12 col-xs-6 mt">
 							<div class="input-field">
 								<label for="from">Number of people going on trek:</label>
 							</div>
 							<div class="input-field">
-								<label for="from"><?php echo $_POST['numberpeople'] ?></label>
+								<span><?php echo $_POST['numberpeople'] ?></span>
 								<input type="hidden" id="numberpeople" value="<?php echo $_POST['numberpeople'] ?>">
 							</div>
-						</div>
-						<div class="col-xxs-12 col-xs-6 mt">
 							<div class="input-field">
 								<label for="from">Pickup Location:</label>
 							</div>
 							<div class="input-field">
-								<label for="from"><?php echo $_POST['pickup_location'] ?></label>
+								<span><?php echo $_POST['pickup_location'] ?></span>
 								<input type="hidden" id="pickup_location" value="<?php echo $_POST['pickup_location'] ?>">
 							</div>
-						</div>
-						<div class="col-xxs-12 col-xs-6 mt">
 							<div class="input-field">
 								<label for="from">Date of Pickup:</label>
 							</div>
 							<div class="input-field">
-								<label for="from"><?php $date = str_replace("/","-",$_POST['datePickup']); 
-								 echo date_format(date_create($date),'d M Y')?></label>
+								<span></samp><?php $date = str_replace("/","-",$_POST['datePickup']);
+								echo date_format(date_create($date),'d M Y')?></span>
 								<input class="form-control" type="hidden" id="DatePickup"  value="<?php echo $_POST['DatePickup'] ?>">
 							</div>
+							<div class="col-md-2"></div>
 						</div>
-						<div class="form-group">
-							<div class="col-xs-12">
-								<button id="save" class="btn btn-primary btn-block">Booking Now</button>
-							</div>
+					</div>
+					<div class="row" style="margin-top: 50px;">
+						<div class="col-md-2"></div>
+						<div class="col-md-6">
+							<button id="save" class="btn btn-primary btn-block">Booking Now</button>
 						</div>
 					</div>
 				</div>
@@ -256,6 +255,6 @@
 				}
 				});
 						}
-					</script>
-				</body>
-			</html>
+				</script>
+			</body>
+		</html>
