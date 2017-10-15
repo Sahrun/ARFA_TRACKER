@@ -113,7 +113,7 @@
 							</div>
 							<div class="input-field">
 								<span for="from" id="PackageName"></span>
-								<input type="hidden" id="package" value="<?php echo $_POST['package'] ?>" >
+								<input type="hidden" id="package" value="<?php echo $_POST['detpackage'] ?>" >
 							</div>
 							<div class="input-field">
 								<label for="from">Number of people going on trek:</label>
@@ -136,6 +136,13 @@
 								<span></samp><?php $date = str_replace("/","-",$_POST['datePickup']);
 								echo date_format(date_create($date),'d M Y')?></span>
 								<input class="form-control" type="hidden" id="DatePickup"  value="<?php echo $_POST['DatePickup'] ?>">
+							</div>
+							<div class="input-field">
+							<label>Total Tagihan</label>
+							</div>
+							<div class="input-field">
+								<span id="totalBill"></span>
+								<input type="hidden" id="totalBillForm">
 							</div>
 							<div class="col-md-2"></div>
 						</div>
@@ -212,7 +219,9 @@
 				<!-- ACTION BOOKING-->
 				<script type="text/javascript">
 				var iddetpackage = $("#package").val();
+				var numberpeople = $("#numberpeople").val();
 				GetNamePakage(iddetpackage);
+				GetTotalPricePakage(iddetpackage,numberpeople);
 					$("#save").click(function(){
 					create();
 					});
@@ -220,18 +229,19 @@
 						var name = $("#name").val();
 						var email = $("#email").val();
 						var no_telp = $("#no_telp").val();
-						//var package = $("#package").val();
-						var package = 1;
+						var package = $("#package").val();
 						var numberpeople = $("#numberpeople").val();
+						var from = $("#from").val();
+						var totalBillForm = $("#totalBillForm").val();
 						var pickupLocation = $("#pickup_location").val();
 						TemArray = $("#DatePickup").val().split("/");
 						var datePickup = TemArray[2]+"-"+TemArray[1]+"-"+TemArray[0];
-						var data ={proses: "input", name: name,email:email,no_telp:no_telp,package:package,numberpeople:numberpeople,pickupLocation:pickupLocation,datePickup:datePickup};
+						var dataJson ={req: "input", name: name,email:email,no_telp:no_telp,package:package,numberpeople:numberpeople,pickupLocation:pickupLocation,datePickup:datePickup,totalBillForm:totalBillForm,from:from};
 					$.ajax({
 					url:"Service/TransactionInput.php", //the page containing php script
-					type: "post", //request type,
+					type: "get", //request type,
 					dataType: "json",
-					data: data,
+					data: dataJson,
 					success: function() {
 					alert("Transaksi Berhasil");
 					//window.location.replace("index.html");
@@ -249,6 +259,21 @@
 				data: {req:'GetNamePakage',id:id},
 				success: function(data) {
 						$("#PackageName").html(data['package_name']);
+				},
+				error: function() {
+				alert("Terjadi Kesalahan");
+				}
+				});
+						}
+				function GetTotalPricePakage(id,person){
+						$.ajax({
+				url:"Service/TransactionInput.php", //the page containing php script
+				type: "get", //request type,
+				dataType: "json",
+				data: {req:'GetTotalPricePakage',id:id,person:person},
+				success: function(data) {
+						$("#totalBill").html(data['totalPrice']);
+						$("#totalBillForm").val(data['totalPrice']);
 				},
 				error: function() {
 				alert("Terjadi Kesalahan");

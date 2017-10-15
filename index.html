@@ -424,7 +424,7 @@
 			data: {req:'getPackage',Idfrom:Idfrom},
 			success: function(data) {
 			$('#package').empty();
-			$('#package').append("<option>Select</option>");
+			$('#package').append("<option value=''>Select</option>");
 			$.each(data, function (i, item) {
 			$('#package').append($('<option>', {
 									value: item['id_package'],
@@ -505,12 +505,12 @@
 					}else{
 						$("#message_numberpeople").hide();
 					}
-					// if (detpackage == "") {
-					// $("#message_detpackage").show();
+					if (detpackage == "") {
+					$("#message_detpackage").show();
 									
-					// }else{
-					// 	$("#message_detpackage").hide();
-					// }
+					}else{
+						$("#message_detpackage").hide();
+					}
 					if (pickup_location == "") {
 					   $("#message_pickup_location").show();
 									
@@ -525,7 +525,7 @@
 					}
 						if(name == "" || email == "" || no_telp == "" || from == "" || package == "" ||
 							numberpeople == "" || pickup_location == "" ||
-							datePickup == ""  ){
+							datePickup == ""  || detpackage == ""){
 						return false;
 						}
 					}
@@ -534,6 +534,8 @@
 					var Idpackage = $("#package").val();
 					console.log(Idpackage);
 					if(Idpackage == ""){
+						$("#detpackage").empty();
+						$("#detpackage").append("<option value=''>Select</option>");
 						$("#detpackage").prop('disabled', true);
 					}
 					else{

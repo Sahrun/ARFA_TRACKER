@@ -489,7 +489,7 @@
 		var data ={proses: "input", name: name,email:email,no_telp:no_telp,package:package,numberpeople:numberpeople,banknumber:banknumber};
 	$.ajax({
 	url:"../Service/TransactionInput.php", //the page containing php script
-	type: "post", //request type,
+	type: "get", //request type,
 	dataType: "json",
 	data: data,
 	success: function() {
