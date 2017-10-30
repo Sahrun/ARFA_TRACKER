@@ -37,15 +37,28 @@ function InsertOrder($connection){
 	$noPhone = $_GET['no_telp'];
 	$package = $_GET['package'];
 	$numberpeople = $_GET['numberpeople'];
-	$pickupLocation         = $_GET['pickupLocation'];
+	$pickupLocation  = $_GET['pickupLocation'];
 	$datePickup = $_GET['datePickup'];
 	$datenow = date('Y-m-d');
-$from = $_GET['from'];
-$totalBillForm = $_GET['totalBillForm'];
+	$from = $_GET['from'];
+	$totalBillForm = $_GET['totalBillForm'];
 $Insert_Order="INSERT INTO order_package(name,email,no_telpon,id_package,number_people,pickup_location,date_pickup,date_order,total_price,islocal)
 VALUES('$name','$email',$noPhone,$package,$numberpeople,'$pickupLocation','$datePickup','$datenow',$totalBillForm,$from)";
 if (mysqli_query($connection, $Insert_Order )) {
-	if(SendEmailToClient($email,"ARFA TRACKER","Your Order","hell <b>".$name."</b>")){
+	$message = '<html><body>';
+	$message .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
+	$message .= "<tr style='background: #eee;'><td><strong>Name:</strong> </td><td>" .$name. "</td></tr>";
+	$message .= "<tr><td><strong>Email:</strong> </td><td>" .$email. "</td></tr>";
+	$message .= "<tr><td><strong>Phone Number:</strong> </td><td>" .$noPhone. "</td></tr>";
+	$message .= "<tr><td><strong>Where Are You From:</strong> </td><td>" .$from. "</td></tr>";
+	$message .= "<tr><td><strong>Package:</strong> </td><td>" .$package. "</td></tr>";
+	$message .= "<tr><td><strong>Number of people going on trek:</strong> </td><td>" .$numberpeople. "</td></tr>";
+	$message .= "<tr><td><strong>Pickup Location:</strong> </td><td>" .$pickupLocation. "</td></tr>";
+	$message .= "<tr><td><strong>Date of Pickup:</strong> </td><td>" .$datenow. "</td></tr>";
+	$message .= "<tr><td><strong>Total Tagihan:</strong> </td><td>" .$totalBillForm. "</td></tr>";
+	$message .= "</table>";
+	$message .= "</body></html>";
+	if(SendEmailToClient($email,"ARFA TRACKER","Your Detail Order",$message)){
 		if(SendEmailToAdmin("sahrunnawawi995@gmail.com","ARFA TRACKER","Your Order","Pesanan Anda ...")){
 			echo json_encode(array('status'=>true));
 	}
